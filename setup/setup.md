@@ -30,3 +30,8 @@ Saving files so kids can continue to work on them from home
 -------------------------------------------------------------
 
 The obvious thing to use is probably github, since PyCharm has built-in git support, and it doesn't require us to install other software on the PCs. However I haven't really thought this through yet. If we did really want to do this, perhaps the code for the exercises should start off on github and get forked by the kids.
+
+Reverting
+-------------
+
+We need to ensure that the kids always *make a copy* of the file so they can revert to the original. This almost motivates more consideration of using git/github, simply because I can't think of a way to enforce that kids do this in a classroom...
