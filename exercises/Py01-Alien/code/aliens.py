@@ -206,7 +206,7 @@ def main(winstyle = 0):
 
     #create the background, tile the bgd image
     bgdtile = load_image('background.gif')
-    background = pygame.Surface(SCREENRECT.size, flags=pygame.SRCALPHA)
+    background = pygame.Surface(SCREENRECT.size)
     for x in range(0, SCREENRECT.width, bgdtile.get_width()):
         background.blit(bgdtile, (x, 0))
     screen.blit(background, (0,0))
