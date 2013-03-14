@@ -2,6 +2,22 @@
 
 import random, os.path
 
+# Ade's CodeClub notes.
+# This code is quite nice and short but there are various aspects of it which I think we should
+# try to simplify for CodeClub.
+# Specifically:
+# 1. We need big obvious section headings about which bits the kids should ignore versus not.
+#    e.g. I have no intention to teach them about modules, etc just yet.
+# 2. It would be better if all the code for each sprite is localised. That probably means adding
+#    a load_images method which does just that for each sprite, instead of specifying the
+#    image filenames within main.
+# 3. Get rid of complex maths. And unnecessary cleverness e.g. subtracting one key state from another.
+#    I like it, but it's no good for kids.
+# 4. Consider hiding some boilerplate in a module (e.g. the image loading stuff). Try to keep
+#    this file fully oriented towards alien-related topics.
+# 5. Get rid of 'animcycle'
+# 6. Simply more comments, ideally on nearly every line.
+
 #import basic pygame modules
 import pygame
 from pygame.locals import *
