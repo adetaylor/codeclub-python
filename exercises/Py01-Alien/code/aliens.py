@@ -184,7 +184,7 @@ def main(winstyle = 0):
         pygame.mixer = None
 
     # Set the display mode
-    winstyle = 0  # |FULLSCREEN
+    winstyle = 0 # or, could use FULLSCREEN instead of 0
     bestdepth = pygame.display.mode_ok(SCREENRECT.size, winstyle, 32)
     screen = pygame.display.set_mode(SCREENRECT.size, winstyle, bestdepth)
 
