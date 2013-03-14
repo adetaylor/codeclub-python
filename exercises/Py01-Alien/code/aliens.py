@@ -90,7 +90,7 @@ class Player(pygame.sprite.Sprite):
 
 
 class Alien(pygame.sprite.Sprite):
-    speed = 7
+    speed = 13
     animcycle = 12
     images = []
     def __init__(self):
@@ -113,7 +113,7 @@ class Alien(pygame.sprite.Sprite):
 
 
 class Explosion(pygame.sprite.Sprite):
-    defaultlife = 24
+    defaultlife = 12
     animcycle = 3
     images = []
     def __init__(self, actor):
