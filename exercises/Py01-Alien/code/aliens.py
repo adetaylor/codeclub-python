@@ -55,14 +55,6 @@ winstyle = 0 # or, could use FULLSCREEN instead of 0
 bestdepth = pygame.display.mode_ok(SCREENRECT.size, winstyle, 32)
 screen = pygame.display.set_mode(SCREENRECT.size, winstyle, bestdepth)
 
-# Ade's CodeClub notes.
-# This code is quite nice and short but there are various aspects of it which I think we should
-# try to simplify for CodeClub.
-# Specifically:
-# 3. Get rid of complex maths. And unnecessary cleverness e.g. subtracting one key state from another.
-#    I like it, but it's no good for kids.
-
-
 #######################################################################################
 # Game objects.
 #
@@ -92,15 +84,11 @@ screen = pygame.display.set_mode(SCREENRECT.size, winstyle, bestdepth)
 # which is called regularly throughout the game. The Player
 # has 'move' instead.
 
-def load_player_images():
-    img = load_image('player1.gif')
-    return [img, pygame.transform.flip(img, 1, 0)]
-
 class Player(pygame.sprite.Sprite):
     speed = 10
     bounce = 24
     gun_offset = -11
-    images = load_player_images()
+    images = load_image_and_its_mirror_image('player1.gif', 1, 0)
 
     def __init__(self):
         pygame.sprite.Sprite.__init__(self, self.containers)
@@ -151,14 +139,10 @@ class Alien(pygame.sprite.Sprite):
         self.frame = self.frame + 1
         self.image = self.images[self.frame//self.FRAMES_BETWEEN_IMAGE_CHANGE%3]
 
-def load_explosion_images():
-    img = load_image('explosion1.gif')
-    return [img, pygame.transform.flip(img, 1, 1)]
-
 class Explosion(pygame.sprite.Sprite):
     LIFETIME = 12
     FRAMES_BETWEEN_IMAGE_CHANGE = 3
-    images = load_explosion_images()
+    images = load_image_and_its_mirror_image('explosion1.gif', 1, 1)
     def __init__(self, actor):
         pygame.sprite.Sprite.__init__(self, self.containers)
         self.image = self.images[0]

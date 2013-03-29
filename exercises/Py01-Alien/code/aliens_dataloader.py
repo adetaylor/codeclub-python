@@ -28,6 +28,10 @@ def load_images(*files):
         imgs.append(load_image(file))
     return imgs
 
+def load_image_and_its_mirror_image(file, flipx, flipy):
+    img = load_image(file)
+    return [img, pygame.transform.flip(img, flipx, flipy)]
+
 # Aha, you *are* reading this in detail.
 # A 'class' in Python is a bit like a sprite in Scratch, except that it doesn't
 # actually have to be something you can see on the screen. Any 'thing' can
