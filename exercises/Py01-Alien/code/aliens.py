@@ -45,7 +45,7 @@ if not pygame.image.get_extended():
 MAX_SHOTS      = 2      # no more than two player bullets can be on screen at a time
 ALIEN_ODDS     = 22     # chances that a new alien appears (1 in 22 chance)
 BOMB_ODDS      = 60     # chances that a new bomb will drop (1 in 60 chance)
-ALIEN_RELOAD   = 12     # frames between new aliens (25 frames per second, so there *might*
+FRAMES_BETWEEN_ALIEN_RELOAD_CHANCE   = 12 # frames between new aliens (25 frames per second, so there *might*
                         # be an alien every 0.5 seconds (ish) depending on the odds)
 SCREENRECT     = Rect(0, 0, 640, 480)
 
@@ -258,14 +258,17 @@ if pygame.mixer:
 # each individual alien, we can put them all into a group
 # then ask pygame to check whether the player has hit
 # anything in that group. We do the same with some other
-# things too.
+# things too, and we also use these groups to ask
+# everything to update.
 aliens = pygame.sprite.Group()
 shots = pygame.sprite.Group()
 bombs = pygame.sprite.Group()
 all = pygame.sprite.RenderUpdates()
 lastalien = pygame.sprite.GroupSingle()
 
-# Assign default groups to each sprite class
+# Assign default groups to each sprite class.
+# Every time we create a new one of these sprites,
+# it will put itself into the right groups.
 Player.containers = all
 Alien.containers = aliens, all, lastalien
 Shot.containers = shots, all
@@ -274,7 +277,7 @@ Explosion.containers = all
 Score.containers = all
 
 # Create Some Starting Values
-alienreload = ALIEN_RELOAD
+frames_until_we_might_create_alien = FRAMES_BETWEEN_ALIEN_RELOAD_CHANCE
 score = 0
 kills = 0
 clock = pygame.time.Clock()
@@ -315,11 +318,11 @@ while player.alive():
     player.reloading = firing
 
     # Create new alien
-    if alienreload:
-        alienreload = alienreload - 1
+    if frames_until_we_might_create_alien > 0:
+        frames_until_we_might_create_alien = frames_until_we_might_create_alien - 1
     elif not int(random.random() * ALIEN_ODDS):
         Alien()
-        alienreload = ALIEN_RELOAD
+        frames_until_we_might_create_alien = FRAMES_BETWEEN_ALIEN_RELOAD_CHANCE
 
     # Drop bombs
     if lastalien and not int(random.random() * BOMB_ODDS):
