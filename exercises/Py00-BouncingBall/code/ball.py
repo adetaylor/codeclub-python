@@ -11,8 +11,7 @@ from codeclub_pygame_handy_functions import *
 pygame.init()
 
 screen_rect = Rect(0, 0, 640, 480)
-bestdepth = pygame.display.mode_ok(screen_rect.size, 0, 32)
-screen = pygame.display.set_mode(screen_rect.size, 0, bestdepth)
+screen = pygame.display.set_mode(screen_rect.size)
 ball_image = load_image_from_data_directory('ball.png')
 small_ball_image = pygame.transform.scale(ball_image, (50, 50))
 
