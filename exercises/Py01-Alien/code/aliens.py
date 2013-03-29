@@ -109,14 +109,14 @@ class Player(pygame.sprite.Sprite):
 
 
 class Alien(pygame.sprite.Sprite):
-    speed = 13
-    animcycle = 12
+    SPEED = 13
+    FRAMES_BETWEEN_IMAGE_CHANGE = 12 # about half a second
     images = []
     def __init__(self):
         pygame.sprite.Sprite.__init__(self, self.containers)
         self.image = self.images[0]
         self.rect = self.image.get_rect()
-        self.facing = random.choice((-1,1)) * Alien.speed
+        self.facing = random.choice((-1,1)) * Alien.SPEED
         self.frame = 0
         if self.facing < 0:
             self.rect.right = SCREENRECT.right
@@ -128,23 +128,23 @@ class Alien(pygame.sprite.Sprite):
             self.rect.top = self.rect.bottom + 1
             self.rect = self.rect.clamp(SCREENRECT)
         self.frame = self.frame + 1
-        self.image = self.images[self.frame//self.animcycle%3]
+        self.image = self.images[self.frame//self.FRAMES_BETWEEN_IMAGE_CHANGE%3]
 
 
 class Explosion(pygame.sprite.Sprite):
-    defaultlife = 12
-    animcycle = 3
+    LIFETIME = 12
+    FRAMES_BETWEEN_IMAGE_CHANGE = 3
     images = []
     def __init__(self, actor):
         pygame.sprite.Sprite.__init__(self, self.containers)
         self.image = self.images[0]
         self.rect = self.image.get_rect(center=actor.rect.center)
-        self.life = self.defaultlife
+        self.life_remaining = self.LIFETIME
 
     def update(self):
-        self.life = self.life - 1
-        self.image = self.images[self.life//self.animcycle%2]
-        if self.life <= 0: self.kill()
+        self.life_remaining = self.life_remaining - 1
+        self.image = self.images[self.life_remaining//self.FRAMES_BETWEEN_IMAGE_CHANGE%2]
+        if self.life_remaining <= 0: self.kill()
 
 
 class Shot(pygame.sprite.Sprite):
