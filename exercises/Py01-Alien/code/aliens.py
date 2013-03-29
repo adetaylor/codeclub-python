@@ -202,8 +202,6 @@ class Bomb(pygame.sprite.Sprite):
 
 
 class Score(pygame.sprite.Sprite):
-    score = 0
-
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.font = pygame.font.Font(None, 20)
