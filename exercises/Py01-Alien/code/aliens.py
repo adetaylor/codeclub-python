@@ -35,8 +35,6 @@ if not pygame.image.get_extended():
 #    image filenames within main.
 # 3. Get rid of complex maths. And unnecessary cleverness e.g. subtracting one key state from another.
 #    I like it, but it's no good for kids.
-# 4. Consider hiding some boilerplate in a module (e.g. the image loading stuff). Try to keep
-#    this file fully oriented towards alien-related topics.
 # 5. Get rid of 'animcycle'
 
 #######################################################################################
@@ -50,7 +48,6 @@ BOMB_ODDS      = 60     # chances that a new bomb will drop (1 in 60 chance)
 ALIEN_RELOAD   = 12     # frames between new aliens (25 frames per second, so there *might*
                         # be an alien every 0.5 seconds (ish) depending on the odds)
 SCREENRECT     = Rect(0, 0, 640, 480)
-SCORE          = 0
 
 #######################################################################################
 # Game objects.
@@ -181,19 +178,22 @@ class Bomb(pygame.sprite.Sprite):
 
 
 class Score(pygame.sprite.Sprite):
+    score = 0
+
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.font = pygame.font.Font(None, 20)
         self.font.set_italic(1)
         self.color = Color('white')
-        self.lastscore = -1
+        self.last_drawn_score = -1
         self.update()
         self.rect = self.image.get_rect().move(10, 450)
 
     def update(self):
-        if SCORE != self.lastscore:
-            self.lastscore = SCORE
-            msg = "Score: %d" % SCORE
+        # Don't bother redrawing the score unless it's actually changed.
+        if score != self.last_drawn_score:
+            self.last_drawn_score = score
+            msg = "Score: %d" % score
             self.image = self.font.render(msg, 0, self.color)
 
 #######################################################################################
@@ -219,6 +219,9 @@ screen = pygame.display.set_mode(SCREENRECT.size, winstyle, bestdepth)
 
 # Load images, assign to sprite classes
 # (do this before the classes are used, after screen setup)
+# Why don't we do this in the __init__ bit of each class?
+# Because we want it to happen once at the beginning of each game,
+# instead of each time a new alien/bullet is created.
 img = load_image('player1.gif')
 Player.images = [img, pygame.transform.flip(img, 1, 0)]
 img = load_image('explosion1.gif')
@@ -272,6 +275,7 @@ Score.containers = all
 
 # Create Some Starting Values
 alienreload = ALIEN_RELOAD
+score = 0
 kills = 0
 clock = pygame.time.Clock()
 
@@ -284,18 +288,19 @@ if pygame.font:
 # This loop is important CodeClubbers!
 while player.alive():
 
-    # See if any keys were pressed
+    # See if we want to end the game
     for event in pygame.event.get():
         if event.type == QUIT or \
             (event.type == KEYDOWN and event.key == K_ESCAPE):
-                raise SystemExit()
+                raise SystemExit
     keystate = pygame.key.get_pressed()
 
     # clear/erase the last drawn sprites
     all.clear(screen, background)
 
     # update all the sprites. This calls 'update'
-    # on all the different sprites there are.
+    # on all the different sprites there are, because we put
+    # them all into the 'all' group above.
     all.update()
 
     # Key states are 0 if the key isn't pressed, or 1 if key
@@ -325,13 +330,13 @@ while player.alive():
         boom_sound.play()
         Explosion(alien)
         Explosion(player)
-        SCORE = SCORE + 1
+        score = score + 1
         player.kill()
 
     for alien in pygame.sprite.groupcollide(shots, aliens, 1, 1).keys():
         boom_sound.play()
         Explosion(alien)
-        SCORE = SCORE + 1
+        score = score + 1
 
     for bomb in pygame.sprite.spritecollide(player, bombs, 1):
         boom_sound.play()
