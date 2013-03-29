@@ -329,10 +329,10 @@ Alien() #note, this 'lives' because it goes into a sprite group
 if pygame.font:
     all.add(Score())
 
-
+# This loop is important CodeClubbers!
 while player.alive():
 
-    #get input
+    # See if any keys were pressed
     for event in pygame.event.get():
         if event.type == QUIT or \
             (event.type == KEYDOWN and event.key == K_ESCAPE):
@@ -342,10 +342,13 @@ while player.alive():
     # clear/erase the last drawn sprites
     all.clear(screen, background)
 
-    #update all the sprites
+    # update all the sprites. This calls 'update'
+    # on all the different sprites there are.
     all.update()
 
-    #handle player input
+    # Key states are 0 if the key isn't pressed, or 1 if key
+    # is pressed. So, 'direction' will be 1 if moving right,
+    # -1 if moving left. Clever but quite confusing.
     direction = keystate[K_RIGHT] - keystate[K_LEFT]
     player.move(direction)
     firing = keystate[K_SPACE]
