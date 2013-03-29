@@ -22,21 +22,6 @@ from pygame.locals import *  # And we need to get more bits of pygame too.
 from aliens_dataloader import * # Finally some handy bits of code of our own,
    # which we've just put in a separate file to avoid cluttering this one.
 
-# Check that the version of pygame on this PC is working properly.
-if not pygame.image.get_extended():
-    raise SystemExit("Sorry, extended image module required")
-
-# Ade's CodeClub notes.
-# This code is quite nice and short but there are various aspects of it which I think we should
-# try to simplify for CodeClub.
-# Specifically:
-# 2. It would be better if all the code for each sprite is localised. That probably means adding
-#    a load_images method which does just that for each sprite, instead of specifying the
-#    image filenames within main.
-# 3. Get rid of complex maths. And unnecessary cleverness e.g. subtracting one key state from another.
-#    I like it, but it's no good for kids.
-# 5. Get rid of 'animcycle'
-
 #######################################################################################
 # Basic facts about the game.
 # Because these are unchanging, they are called 'constants'.
@@ -46,8 +31,37 @@ MAX_SHOTS      = 2      # no more than two player bullets can be on screen at a 
 ALIEN_ODDS     = 22     # chances that a new alien appears (1 in 22 chance)
 BOMB_ODDS      = 60     # chances that a new bomb will drop (1 in 60 chance)
 FRAMES_BETWEEN_ALIEN_RELOAD_CHANCE   = 12 # frames between new aliens (25 frames per second, so there *might*
-                        # be an alien every 0.5 seconds (ish) depending on the odds)
+# be an alien every 0.5 seconds (ish) depending on the odds)
 SCREENRECT     = Rect(0, 0, 640, 480)
+
+#######################################################################################
+# Setting up pygame.
+# This doesn't affect the behaviour of the sprites... but there might be some things you need to look at
+# here for one of the challenges...
+#######################################################################################
+
+# Check that the version of pygame on this PC is working properly.
+if not pygame.image.get_extended():
+    raise SystemExit("Sorry, extended image module required")
+
+# Set up pygame.
+pygame.init()
+if pygame.mixer and not pygame.mixer.get_init():
+    print ('Warning, no sound')
+    pygame.mixer = None
+
+# Boring stuff related to setting up the pygame window
+winstyle = 0 # or, could use FULLSCREEN instead of 0
+bestdepth = pygame.display.mode_ok(SCREENRECT.size, winstyle, 32)
+screen = pygame.display.set_mode(SCREENRECT.size, winstyle, bestdepth)
+
+# Ade's CodeClub notes.
+# This code is quite nice and short but there are various aspects of it which I think we should
+# try to simplify for CodeClub.
+# Specifically:
+# 3. Get rid of complex maths. And unnecessary cleverness e.g. subtracting one key state from another.
+#    I like it, but it's no good for kids.
+
 
 #######################################################################################
 # Game objects.
@@ -64,6 +78,9 @@ SCREENRECT     = Rect(0, 0, 640, 480)
 # Unlike Scratch, there's no need to copy the scripts between several
 # things that behave the same way.
 
+# Of course, for some 'classes' there might be only one - the Player
+# is a good example.
+
 # The little scripts within each class are called 'functions'
 # and they start with 'def' (which is short for 'define').
 
@@ -75,11 +92,15 @@ SCREENRECT     = Rect(0, 0, 640, 480)
 # which is called regularly throughout the game. The Player
 # has 'move' instead.
 
+def load_player_images():
+    img = load_image('player1.gif')
+    return [img, pygame.transform.flip(img, 1, 0)]
+
 class Player(pygame.sprite.Sprite):
     speed = 10
     bounce = 24
     gun_offset = -11
-    images = []
+    images = load_player_images()
 
     def __init__(self):
         pygame.sprite.Sprite.__init__(self, self.containers)
@@ -111,7 +132,7 @@ class Player(pygame.sprite.Sprite):
 class Alien(pygame.sprite.Sprite):
     SPEED = 13
     FRAMES_BETWEEN_IMAGE_CHANGE = 12 # about half a second
-    images = []
+    images = load_images('alien1.gif', 'alien2.gif', 'alien3.gif')
     def __init__(self):
         pygame.sprite.Sprite.__init__(self, self.containers)
         self.image = self.images[0]
@@ -130,11 +151,14 @@ class Alien(pygame.sprite.Sprite):
         self.frame = self.frame + 1
         self.image = self.images[self.frame//self.FRAMES_BETWEEN_IMAGE_CHANGE%3]
 
+def load_explosion_images():
+    img = load_image('explosion1.gif')
+    return [img, pygame.transform.flip(img, 1, 1)]
 
 class Explosion(pygame.sprite.Sprite):
     LIFETIME = 12
     FRAMES_BETWEEN_IMAGE_CHANGE = 3
-    images = []
+    images = load_explosion_images()
     def __init__(self, actor):
         pygame.sprite.Sprite.__init__(self, self.containers)
         self.image = self.images[0]
@@ -149,7 +173,7 @@ class Explosion(pygame.sprite.Sprite):
 
 class Shot(pygame.sprite.Sprite):
     speed = -11
-    images = []
+    images = [load_image('shot.gif')]
     def __init__(self, pos):
         pygame.sprite.Sprite.__init__(self, self.containers)
         self.image = self.images[0]
@@ -163,7 +187,7 @@ class Shot(pygame.sprite.Sprite):
 
 class Bomb(pygame.sprite.Sprite):
     speed = 9
-    images = []
+    images = [load_image('bomb.gif')]
     def __init__(self, alien):
         pygame.sprite.Sprite.__init__(self, self.containers)
         self.image = self.images[0]
@@ -205,30 +229,6 @@ class Score(pygame.sprite.Sprite):
 # There's only one of these, and it arranges to call all the other functions when
 # necessary.
 #######################################################################################
-
-# Set up pygame
-pygame.init()
-if pygame.mixer and not pygame.mixer.get_init():
-    print ('Warning, no sound')
-    pygame.mixer = None
-
-# Boring stuff related to setting up the pygame window
-winstyle = 0 # or, could use FULLSCREEN instead of 0
-bestdepth = pygame.display.mode_ok(SCREENRECT.size, winstyle, 32)
-screen = pygame.display.set_mode(SCREENRECT.size, winstyle, bestdepth)
-
-# Load images, assign to sprite classes
-# (do this before the classes are used, after screen setup)
-# Why don't we do this in the __init__ bit of each class?
-# Because we want it to happen once at the beginning of each game,
-# instead of each time a new alien/bullet is created.
-img = load_image('player1.gif')
-Player.images = [img, pygame.transform.flip(img, 1, 0)]
-img = load_image('explosion1.gif')
-Explosion.images = [img, pygame.transform.flip(img, 1, 1)]
-Alien.images = load_images('alien1.gif', 'alien2.gif', 'alien3.gif')
-Bomb.images = [load_image('bomb.gif')]
-Shot.images = [load_image('shot.gif')]
 
 #decorate the game window
 icon = pygame.transform.scale(Alien.images[0], (32, 32))
