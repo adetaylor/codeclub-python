@@ -16,7 +16,6 @@ ball_image = load_image_from_data_directory('ball.png')
 small_ball_image = pygame.transform.scale(ball_image, (50, 50))
 
 class Ball(pygame.sprite.Sprite):
-    speed = 5
 
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
@@ -25,7 +24,7 @@ class Ball(pygame.sprite.Sprite):
 
     def move(self, direction):
         if direction: self.facing = direction
-        self.rect.move_ip(direction*self.speed, 0)
+        self.rect.move_ip(direction*5, 0)
         self.rect = self.rect.clamp(screen_rect)
 
 background = pygame.Surface(screen_rect.size)
