@@ -55,6 +55,20 @@ winstyle = 0 # or, could use FULLSCREEN instead of 0
 bestdepth = pygame.display.mode_ok(SCREENRECT.size, winstyle, 32)
 screen = pygame.display.set_mode(SCREENRECT.size, winstyle, bestdepth)
 
+# Initialize Game Groups
+# Later, when the game is running, we want to know
+# if an alien has hit the player. Rather than check
+# each individual alien, we can put them all into a group
+# then ask pygame to check whether the player has hit
+# anything in that group. We do the same with some other
+# things too, and we also use these groups to ask
+# everything to update.
+aliens = pygame.sprite.Group()
+shots = pygame.sprite.Group()
+bombs = pygame.sprite.Group()
+all = pygame.sprite.RenderUpdates()
+lastalien = pygame.sprite.GroupSingle()
+
 #######################################################################################
 # Game objects.
 #
@@ -89,6 +103,7 @@ class Player(pygame.sprite.Sprite):
     bounce = 24
     gun_offset = -11
     images = load_image_and_its_mirror_image('player1.gif', 1, 0)
+    containers = all
 
     def __init__(self):
         pygame.sprite.Sprite.__init__(self, self.containers)
@@ -121,6 +136,8 @@ class Alien(pygame.sprite.Sprite):
     SPEED = 13
     FRAMES_BETWEEN_IMAGE_CHANGE = 12 # about half a second
     images = load_images('alien1.gif', 'alien2.gif', 'alien3.gif')
+    containers = aliens, all, lastalien
+
     def __init__(self):
         pygame.sprite.Sprite.__init__(self, self.containers)
         self.image = self.images[0]
@@ -143,6 +160,8 @@ class Explosion(pygame.sprite.Sprite):
     LIFETIME = 12
     FRAMES_BETWEEN_IMAGE_CHANGE = 3
     images = load_image_and_its_mirror_image('explosion1.gif', 1, 1)
+    containers = all
+
     def __init__(self, actor):
         pygame.sprite.Sprite.__init__(self, self.containers)
         self.image = self.images[0]
@@ -158,6 +177,8 @@ class Explosion(pygame.sprite.Sprite):
 class Shot(pygame.sprite.Sprite):
     speed = -11
     images = [load_image('shot.gif')]
+    containers = shots, all
+
     def __init__(self, pos):
         pygame.sprite.Sprite.__init__(self, self.containers)
         self.image = self.images[0]
@@ -172,6 +193,8 @@ class Shot(pygame.sprite.Sprite):
 class Bomb(pygame.sprite.Sprite):
     speed = 9
     images = [load_image('bomb.gif')]
+    containers = bombs, all
+
     def __init__(self, alien):
         pygame.sprite.Sprite.__init__(self, self.containers)
         self.image = self.images[0]
@@ -233,30 +256,6 @@ if pygame.mixer:
     music = os.path.join(main_dir, 'data', 'house_lo.wav')
     pygame.mixer.music.load(music)
     pygame.mixer.music.play(-1)
-
-# Initialize Game Groups
-# Later, when the game is running, we want to know
-# if an alien has hit the player. Rather than check
-# each individual alien, we can put them all into a group
-# then ask pygame to check whether the player has hit
-# anything in that group. We do the same with some other
-# things too, and we also use these groups to ask
-# everything to update.
-aliens = pygame.sprite.Group()
-shots = pygame.sprite.Group()
-bombs = pygame.sprite.Group()
-all = pygame.sprite.RenderUpdates()
-lastalien = pygame.sprite.GroupSingle()
-
-# Assign default groups to each sprite class.
-# Every time we create a new one of these sprites,
-# it will put itself into the right groups.
-Player.containers = all
-Alien.containers = aliens, all, lastalien
-Shot.containers = shots, all
-Bomb.containers = bombs, all
-Explosion.containers = all
-Score.containers = all
 
 # Create Some Starting Values
 frames_until_we_might_create_alien = FRAMES_BETWEEN_ALIEN_RELOAD_CHANCE
