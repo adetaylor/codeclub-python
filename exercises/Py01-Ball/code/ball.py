@@ -38,8 +38,8 @@ while running:
     for event in pygame.event.get():
         if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
             running = False
-    keystate = pygame.key.get_pressed()
-    direction = keystate[K_RIGHT] - keystate[K_LEFT]
+    keys_pressed = pygame.key.get_pressed()
+    direction = keys_pressed[K_RIGHT] - keys_pressed[K_LEFT]
     ball.move(direction)
 
     all.clear(screen, background)
