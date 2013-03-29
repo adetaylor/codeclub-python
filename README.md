@@ -2,7 +2,7 @@ Python CodeClub experiments
 ============================
 
 This repository contains some experiments in producing a Python CodeClub curriculum
-using PyGame, and eventually I hope, PyBonjour.
+using PyGame and, I hope eventually, networked games.
 
 Motivation: why Python?
 ---------
@@ -14,13 +14,14 @@ HTML/JavaScript is not my _personal_ idea of awesome, hence I'm joining in with 
 Will the kids want to do Python?
 ------------------------
 
-General view of Python has been quite negative in comments in the class: terms like 'boring'. But I asked at my CodeClub session today whether the kids wanted to move to Python, because "it can do much more stuff" but "is much more difficult". The response was broadly a yes.
+General view of Python has been quite negative in comments in the class: terms like 'boring'. But I asked at my CodeClub session today whether the kids wanted to move to Python, because "it can do much more stuff" but "is much more difficult". The response was categorically a yes.
 
 However, I do think many of the kids will struggle. It is _much_ more difficult no matter which way you cut it.
 
-Hence we need to provide some real solid motivation for the kids to move to Python. I think we therefore need to do one of two things which can't be done in Scratch:
+Hence we need to provide some real solid motivation for the kids to move to Python. I think we therefore need to do one of three things which can't be done in Scratch:
 
 * Robotics.
+* Physics.
 * Networked games.
 
 Initially I'm aiming for the latter as it's much easier.
@@ -32,7 +33,7 @@ That said, I also happen to have a Parrot AR.Drone which has a Python SDK so I h
 Setup
 ------
 
-I've added some notes in [setup/setup.md]. But it's certainly much more complex than Scratch. We need:
+I've added some notes in [a separate document](setup/setup.md). But it's certainly much more complex than Scratch. We need:
 
 * Python and various libraries.
 * Network connectivity.
@@ -41,7 +42,11 @@ I've added some notes in [setup/setup.md]. But it's certainly much more complex 
 Evolution of the course of exercises
 ---------------------------------------
 
-* Py01-Alien:
+* Py01-Ball:
+
+  The first exercise is for the kids to be talked through Python to pick up some basic syntax. There is a single challenge for them to do.
+
+* Py02-Alien:
 
   It's been proposed that the Python exercises start off by shadowing one or more of the Scratch exercises the kids will already have done.
 
@@ -49,13 +54,13 @@ Evolution of the course of exercises
 
 	The intention of the first Python session is to get the kids used to looking through actual textual code, and identifying clues. If we can end the session with an idea that a 'class' relates to a sprite on the screen, we're doing well.
 
-	If anyone things that is pessimistic, you may wish to remember that some of these kids are actually dyslexic and struggle to read normal English very easily! Python is a massive step up from coloured Scratch blobs.
+	If anyone thinks that is pessimistic, you may wish to remember that some of these kids are actually dyslexic and struggle to read normal English very easily! Python is a massive step up from coloured Scratch blobs.
 
-* Py02-Aliens:
+* Py03-Aliens:
 
   We should guide them through making a more substantive change to the same game.
 
-* Py03-Aliens 3:
+* Py04-Aliens 3:
 
   At this point we do something to introduce networking. Maybe we can simply have two players. Or maybe one person controls the 'player' whilst all the other people on the network control the aliens.
 
@@ -65,4 +70,3 @@ Evolution of the course of exercises
 
   We should build up to a more complex network game, possibly in teams somehow.
 
-I'm not necessarily suggesting that the exercises should all be named after Sigourney Weaver films.
