@@ -265,7 +265,12 @@ clock = pygame.time.Clock()
 
 #initialize our starting sprites
 player = Player()
-Alien() #note, this 'lives' because it goes into a sprite group
+# In python, variables don't just have to be numbers or text. They can point
+# to whole sprites. Here, we're created a Player and we've put it into a variable
+# called 'player' so that we can ask it later for its location. Specifically
+# when we want to create a bullet, we need to know where the player was.
+Alien() # create the first alien. But we don't need to remember it.
+
 if pygame.font:
     all.add(Score())
 
@@ -298,7 +303,7 @@ while player.alive():
         shoot_sound.play()
     player.reloading = firing
 
-    # Create new alien
+    # Create new alien, perhaps.
     if frames_until_we_might_create_alien > 0:
         frames_until_we_might_create_alien = frames_until_we_might_create_alien - 1
     elif not int(random.random() * ALIEN_ODDS):
