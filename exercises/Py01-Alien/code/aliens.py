@@ -1,6 +1,30 @@
 #!/usr/bin/env python
 
-import random, os.path
+#######################################################################################
+# CodeClub Alien exercise
+#######################################################################################
+
+#######################################################################################
+# Code to ignore.
+# The code in this section doesn't affect the game play and CodeClubbers can safely
+# ignore it. There are comments explaining what each bit does, but you can skip ahead
+# to the next big comment like this.
+#######################################################################################
+
+# Our program asks for help from some other Python programs, called 'modules' or
+# 'libraries'. Here is where we say what programs we need help from. That just means
+# we don't have to do so much work ourselves in our program.
+
+import random # We need use random numbers
+import os.path # We need to use images on disk, and this module helps us specify
+   # how to find them
+import pygame # We are making a game. pygame draws us a window and makes it easy to
+   # show sprites.
+from pygame.locals import *  # And we need to get more bits of pygame too.
+
+# Check that the version of pygame on this PC is working properly.
+if not pygame.image.get_extended():
+    raise SystemExit("Sorry, extended image module required")
 
 # Ade's CodeClub notes.
 # This code is quite nice and short but there are various aspects of it which I think we should
@@ -18,23 +42,28 @@ import random, os.path
 # 5. Get rid of 'animcycle'
 # 6. Simply more comments, ideally on nearly every line.
 
-#import basic pygame modules
-import pygame
-from pygame.locals import *
+#######################################################################################
+# Basic facts about the game.
+# Because these are unchanging, they are called 'constants'.
+#######################################################################################
 
-#see if we can load more than standard BMP
-if not pygame.image.get_extended():
-    raise SystemExit("Sorry, extended image module required")
-
-
-#game constants
-MAX_SHOTS      = 2      #most player bullets onscreen
-ALIEN_ODDS     = 22     #chances a new alien appears
-BOMB_ODDS      = 60    #chances a new bomb will drop
-ALIEN_RELOAD   = 12     #frames between new aliens
+MAX_SHOTS      = 2      # no more than two player bullets can be on screen at a time
+ALIEN_ODDS     = 22     # chances that a new alien appears (1 in 22 chance)
+BOMB_ODDS      = 60     # chances that a new bomb will drop (1 in 60 chance)
+ALIEN_RELOAD   = 12     # frames between new aliens (25 frames per second, so there *might*
+                        # be an alien every 0.5 seconds (ish) depending on the odds)
 SCREENRECT     = Rect(0, 0, 640, 480)
 SCORE          = 0
 
+#######################################################################################
+# Stuff about loading images and sounds.
+# Scratch intrinsically knows how to show images and play sounds, but Python
+# doesn't so we have to have this code to load them. However, fortunately,
+# we use the services of another program called 'pygame' to do most of the work.
+#######################################################################################
+
+# Set up a variable containing the location of this 'aliens.py' file on disk.
+# We assume all the images are nearby in a folder called 'data'.
 main_dir = os.path.split(os.path.abspath(__file__))[0]
 
 def load_image(file):
@@ -52,7 +81,12 @@ def load_images(*files):
         imgs.append(load_image(file))
     return imgs
 
-
+# Aha, you *are* reading this in detail.
+# A 'class' in Python is a bit like a sprite in Scratch, except that it doesn't
+# actually have to be something you can see on the screen. Any 'thing' can
+# be a class. For example a sound can be a class. This particular 'thing'
+# is an empty sound that can be played instead of a proper sound if
+# the proper sound can't be loaded.
 class dummysound:
     def play(self): pass
 
@@ -66,22 +100,38 @@ def load_sound(file):
         print ('Warning, unable to load, %s' % file)
     return dummysound()
 
+#######################################################################################
+# Game objects.
+#
+#      *** THE FIRST IMPORTANT BIT!!! ***
+#
+# These are the equivalent of Scratch 'sprites'
+#######################################################################################
 
+# The big difference from Scratch sprites:
+# There are 'classes' of game objects, but there may be several
+# objects of that class. For example there might be several aliens
+# or several bullets.
+# Unlike Scratch, there's no need to copy the scripts between several
+# things that behave the same way.
 
-# each type of game object gets an init and an
-# update function. the update function is called
-# once per frame, and it is when each object should
-# change it's current position and state. the Player
-# object actually gets a "move" function instead of
-# update, since it is passed extra information about
-# the keyboard
+# The little scripts within each class are called 'functions'
+# and they start with 'def' (which is short for 'define').
 
+# For each one, __init__ is called when the object is created.
+# For the player, that would be at the beginning of the game,
+# but aliens or bullets may be created later in the game.
+
+# All of them (except the Player) have an 'update' function
+# which is called regularly throughout the game. The Player
+# has 'move' instead.
 
 class Player(pygame.sprite.Sprite):
     speed = 10
     bounce = 24
     gun_offset = -11
     images = []
+
     def __init__(self):
         pygame.sprite.Sprite.__init__(self, self.containers)
         self.image = self.images[0]
@@ -101,6 +151,10 @@ class Player(pygame.sprite.Sprite):
         self.rect.top = self.origtop - (self.rect.left//self.bounce%2)
 
     def gunpos(self):
+        "Tell something else about the location of the gun."
+        # This is a function which "returns a value" - that means
+        # it's a bit like a broadcast which sends a reply with
+        # some information in it.
         pos = self.facing*self.gun_offset + self.rect.centerx
         return pos, self.rect.top
 
@@ -190,149 +244,155 @@ class Score(pygame.sprite.Sprite):
             msg = "Score: %d" % SCORE
             self.image = self.font.render(msg, 0, self.color)
 
+#######################################################################################
+# The main game script.
+#
+#      *** THE SECOND IMPORTANT BIT!!! ***
+#
+# This is the equivalent of the Scratch 'when green flag clicked' script.
+# There's only one of these, and it arranges to call all the other functions when
+# necessary.
+#######################################################################################
+
+# Set up pygame
+pygame.init()
+if pygame.mixer and not pygame.mixer.get_init():
+    print ('Warning, no sound')
+    pygame.mixer = None
+
+# Boring stuff related to setting up the pygame window
+winstyle = 0 # or, could use FULLSCREEN instead of 0
+bestdepth = pygame.display.mode_ok(SCREENRECT.size, winstyle, 32)
+screen = pygame.display.set_mode(SCREENRECT.size, winstyle, bestdepth)
+
+# Load images, assign to sprite classes
+# (do this before the classes are used, after screen setup)
+img = load_image('player1.gif')
+Player.images = [img, pygame.transform.flip(img, 1, 0)]
+img = load_image('explosion1.gif')
+Explosion.images = [img, pygame.transform.flip(img, 1, 1)]
+Alien.images = load_images('alien1.gif', 'alien2.gif', 'alien3.gif')
+Bomb.images = [load_image('bomb.gif')]
+Shot.images = [load_image('shot.gif')]
+
+#decorate the game window
+icon = pygame.transform.scale(Alien.images[0], (32, 32))
+pygame.display.set_icon(icon)
+pygame.display.set_caption('Pygame Aliens')
+pygame.mouse.set_visible(0)
+
+# create the background, tile the bgd image
+bgdtile = load_image('background.gif')
+background = pygame.Surface(SCREENRECT.size)
+for x in range(0, SCREENRECT.width, bgdtile.get_width()):
+    background.blit(bgdtile, (x, 0))
+screen.blit(background, (0,0))
+pygame.display.flip()
+
+# load the sound effects
+boom_sound = load_sound('boom.wav')
+shoot_sound = load_sound('car_door.wav')
+if pygame.mixer:
+    music = os.path.join(main_dir, 'data', 'house_lo.wav')
+    pygame.mixer.music.load(music)
+    pygame.mixer.music.play(-1)
+
+# Initialize Game Groups
+# Later, when the game is running, we want to know
+# if an alien has hit the player. Rather than check
+# each individual alien, we can put them all into a group
+# then ask pygame to check whether the player has hit
+# anything in that group. We do the same with some other
+# things too.
+aliens = pygame.sprite.Group()
+shots = pygame.sprite.Group()
+bombs = pygame.sprite.Group()
+all = pygame.sprite.RenderUpdates()
+lastalien = pygame.sprite.GroupSingle()
+
+# Assign default groups to each sprite class
+Player.containers = all
+Alien.containers = aliens, all, lastalien
+Shot.containers = shots, all
+Bomb.containers = bombs, all
+Explosion.containers = all
+Score.containers = all
+
+# Create Some Starting Values
+alienreload = ALIEN_RELOAD
+kills = 0
+clock = pygame.time.Clock()
+
+#initialize our starting sprites
+player = Player()
+Alien() #note, this 'lives' because it goes into a sprite group
+if pygame.font:
+    all.add(Score())
 
 
-def main(winstyle = 0):
-    # Initialize pygame
-    pygame.init()
-    if pygame.mixer and not pygame.mixer.get_init():
-        print ('Warning, no sound')
-        pygame.mixer = None
+while player.alive():
 
-    # Set the display mode
-    winstyle = 0 # or, could use FULLSCREEN instead of 0
-    bestdepth = pygame.display.mode_ok(SCREENRECT.size, winstyle, 32)
-    screen = pygame.display.set_mode(SCREENRECT.size, winstyle, bestdepth)
+    #get input
+    for event in pygame.event.get():
+        if event.type == QUIT or \
+            (event.type == KEYDOWN and event.key == K_ESCAPE):
+                raise SystemExit()
+    keystate = pygame.key.get_pressed()
 
-    #Load images, assign to sprite classes
-    #(do this before the classes are used, after screen setup)
-    img = load_image('player1.gif')
-    Player.images = [img, pygame.transform.flip(img, 1, 0)]
-    img = load_image('explosion1.gif')
-    Explosion.images = [img, pygame.transform.flip(img, 1, 1)]
-    Alien.images = load_images('alien1.gif', 'alien2.gif', 'alien3.gif')
-    Bomb.images = [load_image('bomb.gif')]
-    Shot.images = [load_image('shot.gif')]
+    # clear/erase the last drawn sprites
+    all.clear(screen, background)
 
-    #decorate the game window
-    icon = pygame.transform.scale(Alien.images[0], (32, 32))
-    pygame.display.set_icon(icon)
-    pygame.display.set_caption('Pygame Aliens')
-    pygame.mouse.set_visible(0)
+    #update all the sprites
+    all.update()
 
-    #create the background, tile the bgd image
-    bgdtile = load_image('background.gif')
-    background = pygame.Surface(SCREENRECT.size)
-    for x in range(0, SCREENRECT.width, bgdtile.get_width()):
-        background.blit(bgdtile, (x, 0))
-    screen.blit(background, (0,0))
-    pygame.display.flip()
+    #handle player input
+    direction = keystate[K_RIGHT] - keystate[K_LEFT]
+    player.move(direction)
+    firing = keystate[K_SPACE]
+    if not player.reloading and firing and len(shots) < MAX_SHOTS:
+        Shot(player.gunpos())
+        shoot_sound.play()
+    player.reloading = firing
 
-    #load the sound effects
-    boom_sound = load_sound('boom.wav')
-    shoot_sound = load_sound('car_door.wav')
-    if pygame.mixer:
-        music = os.path.join(main_dir, 'data', 'house_lo.wav')
-        pygame.mixer.music.load(music)
-        pygame.mixer.music.play(-1)
+    # Create new alien
+    if alienreload:
+        alienreload = alienreload - 1
+    elif not int(random.random() * ALIEN_ODDS):
+        Alien()
+        alienreload = ALIEN_RELOAD
 
-    # Initialize Game Groups
-    aliens = pygame.sprite.Group()
-    shots = pygame.sprite.Group()
-    bombs = pygame.sprite.Group()
-    all = pygame.sprite.RenderUpdates()
-    lastalien = pygame.sprite.GroupSingle()
+    # Drop bombs
+    if lastalien and not int(random.random() * BOMB_ODDS):
+        Bomb(lastalien.sprite)
 
-    #assign default groups to each sprite class
-    Player.containers = all
-    Alien.containers = aliens, all, lastalien
-    Shot.containers = shots, all
-    Bomb.containers = bombs, all
-    Explosion.containers = all
-    Score.containers = all
+    # Detect collisions
+    for alien in pygame.sprite.spritecollide(player, aliens, 1):
+        boom_sound.play()
+        Explosion(alien)
+        Explosion(player)
+        SCORE = SCORE + 1
+        player.kill()
 
-    #Create Some Starting Values
-    global score
-    alienreload = ALIEN_RELOAD
-    kills = 0
-    clock = pygame.time.Clock()
+    for alien in pygame.sprite.groupcollide(shots, aliens, 1, 1).keys():
+        boom_sound.play()
+        Explosion(alien)
+        SCORE = SCORE + 1
 
-    #initialize our starting sprites
-    global SCORE
-    player = Player()
-    Alien() #note, this 'lives' because it goes into a sprite group
-    if pygame.font:
-        all.add(Score())
+    for bomb in pygame.sprite.spritecollide(player, bombs, 1):
+        boom_sound.play()
+        Explosion(player)
+        Explosion(bomb)
+        player.kill()
 
+    #draw the scene
+    dirty = all.draw(screen)
+    pygame.display.update(dirty)
 
-    while player.alive():
+    #cap the framerate
+    clock.tick(40)
 
-        #get input
-        for event in pygame.event.get():
-            if event.type == QUIT or \
-                (event.type == KEYDOWN and event.key == K_ESCAPE):
-                    return
-        keystate = pygame.key.get_pressed()
-
-        # clear/erase the last drawn sprites
-        all.clear(screen, background)
-
-        #update all the sprites
-        all.update()
-
-        #handle player input
-        direction = keystate[K_RIGHT] - keystate[K_LEFT]
-        player.move(direction)
-        firing = keystate[K_SPACE]
-        if not player.reloading and firing and len(shots) < MAX_SHOTS:
-            Shot(player.gunpos())
-            shoot_sound.play()
-        player.reloading = firing
-
-        # Create new alien
-        if alienreload:
-            alienreload = alienreload - 1
-        elif not int(random.random() * ALIEN_ODDS):
-            Alien()
-            alienreload = ALIEN_RELOAD
-
-        # Drop bombs
-        if lastalien and not int(random.random() * BOMB_ODDS):
-            Bomb(lastalien.sprite)
-
-        # Detect collisions
-        for alien in pygame.sprite.spritecollide(player, aliens, 1):
-            boom_sound.play()
-            Explosion(alien)
-            Explosion(player)
-            SCORE = SCORE + 1
-            player.kill()
-
-        for alien in pygame.sprite.groupcollide(shots, aliens, 1, 1).keys():
-            boom_sound.play()
-            Explosion(alien)
-            SCORE = SCORE + 1
-
-        for bomb in pygame.sprite.spritecollide(player, bombs, 1):
-            boom_sound.play()
-            Explosion(player)
-            Explosion(bomb)
-            player.kill()
-
-        #draw the scene
-        dirty = all.draw(screen)
-        pygame.display.update(dirty)
-
-        #cap the framerate
-        clock.tick(40)
-
-    if pygame.mixer:
-        pygame.mixer.music.fadeout(1000)
-    pygame.time.wait(1000)
-    pygame.quit()
-
-
-
-#call the "main" function if running this script
-if __name__ == '__main__': main()
+if pygame.mixer:
+    pygame.mixer.music.fadeout(1000)
+pygame.time.wait(1000)
+pygame.quit()
 
