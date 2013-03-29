@@ -8,15 +8,11 @@ import pygame
 from pygame.locals import *
 from codeclub_pygame_handy_functions import *
 
-screen_rect = Rect(0, 0, 640, 480)
-
 pygame.init()
 
+screen_rect = Rect(0, 0, 640, 480)
 bestdepth = pygame.display.mode_ok(screen_rect.size, 0, 32)
 screen = pygame.display.set_mode(screen_rect.size, 0, bestdepth)
-
-all = pygame.sprite.RenderUpdates()
-
 ball_image = load_image_from_data_directory('ball.png')
 small_ball_image = pygame.transform.scale(ball_image, (50, 50))
 
@@ -24,7 +20,7 @@ class Ball(pygame.sprite.Sprite):
     speed = 5
 
     def __init__(self):
-        pygame.sprite.Sprite.__init__(self, all)
+        pygame.sprite.Sprite.__init__(self)
         self.image = small_ball_image
         self.rect = self.image.get_rect(midbottom=screen_rect.midbottom)
 
@@ -35,6 +31,9 @@ class Ball(pygame.sprite.Sprite):
 
 background = pygame.Surface(screen_rect.size)
 ball = Ball()
+all = pygame.sprite.RenderUpdates()
+all.add(ball)
+
 running = True
 
 while running:
