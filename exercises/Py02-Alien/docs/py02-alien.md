@@ -13,22 +13,22 @@ Step 1: Get the code and run the game
 We're going to be working on an existing game, and making small changes to it. So first of all
 you need to get the game code from the Internet.
 
-# Open PyCharm
-# You should see a window asking you what you want to do:
+1. Open PyCharm
+2. You should see a window asking you what you want to do:
 ![PyCharm intro window](pycharm-intro-window.png)
-# Select "Check out from version control". That just means to fetch some code from the Internet.
-# Select "Git"
+3. Select "Check out from version control". That just means to fetch some code from the Internet.
+4. Select "Git"
 ![PyCharm git window](pycharm-git-window.png)
-# It will ask you for "git repository URL". Enter, very exactly:
+5. It will ask you for "git repository URL". Enter, very exactly:
 ```
 git@github.com:adetaylor/codeclub-python-alien.git
 ```
-# Click Clone and then Yes.
-# You should see a window like this:
+6. Click Clone and then Yes.
+7. You should see a window like this:
 ![PyCharm main window](pycharm-main-window.png)
-# Click the little triangle beside `codeclub-python-alien`. Double click `aliens.py`.
-# You should see the game code. It looks long and terrifying, but don't worry, we'll help you through it.
-# To play the game choose Run - Run... and press return.
+8. Click the little triangle beside `codeclub-python-alien`. Double click `aliens.py`.
+9. You should see the game code. It looks long and terrifying, but don't worry, we'll help you through it.
+10. To play the game choose Run - Run... and press return.
  
 Step 2: Play the game and take some notes
 -----------------------------------------
@@ -88,10 +88,10 @@ Step 5: Make the explosions last twice as long
 Step 6: Change the colour of the ‘Score’ text to blue
 ----------------------------------------------
 
-#	Make the colour of the score blue instead of white.
-#	Make the font size a bit bigger.
-#	Stop it from being italic (_slanty text like this_).
-#	Make it **bold** instead.
+1.	Make the colour of the score blue instead of white.
+2.	Make the font size a bit bigger.
+3.	Stop it from being italic (_slanty text like this_).
+4.	Make it **bold** instead.
 
 Step 7: Make the game full-screen
 ---------------------------------
