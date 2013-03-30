@@ -1,4 +1,4 @@
-Teacher notes for Py01-Alien
+Teacher notes for Py02-Alien
 ============================
 
 Goals:
