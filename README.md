@@ -42,11 +42,11 @@ I've added some notes in [a separate document](setup/setup.md). But it's certain
 Evolution of the course of exercises
 ---------------------------------------
 
-* Py01-Ball:
+* [Py01-Ball](exercises/Py01-Ball/docs/README.md):
 
   The first exercise is for the kids to be talked through Python to pick up some basic syntax. There is a single challenge for them to do.
 
-* Py02-Alien:
+* [Py02-Alien](exercises/Py02-Alien/docs/README.md):
 
   It's been proposed that the Python exercises start off by shadowing one or more of the Scratch exercises the kids will already have done.
 
