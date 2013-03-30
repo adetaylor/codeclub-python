@@ -1,0 +1,3 @@
+[submodule "exercises/Py01-Ball/code-problem"]
+	path = exercises/Py01-Ball/code-problem
+	url = git@github.com:adetaylor/codeclub-python-ball.git
