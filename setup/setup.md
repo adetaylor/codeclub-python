@@ -4,34 +4,13 @@ Setup for CodeClub Python Exercises
 Dependencies
 ---------------
 
-You need:
+You need to install four things:
 
-* Python 2.7
-* PyGame 1.9.1
-* (Later) 'Bonjour' networking software. Specifically:
-** On Windows you should install Bonjour for Windows.
-** On Mac nothing is required.
-** On Linux (including a Raspberry Pi) you should ensure 'avahi' is installed.
-* PyBonjour (version not yet figured out)
-* The PyCharm IDE which is free for use in schools.
+* [Python 2.7](http://www.python.org/getit/) - I use the [32-bit version on Windows](http://www.python.org/ftp/python/2.7.3/python-2.7.3.msi)
+* [PyGame 1.9.1](http://www.pygame.org/download.shtml) - specifically use [this version](http://pygame.org/ftp/pygame-1.9.1.win32-py2.7.msi) if you're on Windows, with 32-bit Python 2.7 as suggested above
+* [git](http://git-scm.com/downloads)
+* [PyCharm IDE](http://www.jetbrains.com/pycharm/download/) which is free for use in schools, but you'll need to fill in a form.
 
-Other things to do
---------------------
+Check that you can access http://www.github.com _and_ https://www.github.com/
 
-* Check that it all works together by doing the first exercise. Ensure in particular that you can edit and run games.
-
-* Check that PyBonjour is working to enable computers on your school network to see one another. In due course we will write some test utility to make this possible...
-
-Why I chose PyCharm
----------------------
-I know nothing about Python IDEs, and I was told this was quite good. It mostly seems to 'just work' thus far.
-
-Saving files so kids can continue to work on them from home
--------------------------------------------------------------
-
-The obvious thing to use is probably github, since PyCharm has built-in git support, and it doesn't require us to install other software on the PCs. However I haven't really thought this through yet. If we did really want to do this, perhaps the code for the exercises should start off on github and get forked by the kids.
-
-Reverting
--------------
-
-We need to ensure that the kids always *make a copy* of the file so they can revert to the original. This almost motivates more consideration of using git/github, simply because I can't think of a way to enforce that kids do this in a classroom...
+Teachers/guides: see [the rationale behind these decisions](rationale.md).

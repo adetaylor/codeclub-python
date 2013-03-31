@@ -1,6 +1,8 @@
 Teacher notes for Py02-Alien
 ============================
 
+[Student handout](py02-alien.md)
+
 Goals:
 
 * Ensure that the Python & IDE setup actually works at your school

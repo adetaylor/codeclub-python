@@ -1,6 +1,8 @@
 Py01-Ball
 =========
 
+[Student handout](py01-ball.md)
+
 The aim of this exercise is to talk the kids through some basic Python syntax,
 especially in relation to PyGame which is what subsequent exercises will use.
 
@@ -31,7 +33,6 @@ Perhaps tick each item off to make sure you don't miss some...
 
 * What's a comment.
 
-
 ```python
 #######################################################################################
 # CodeClub Ball exercise
@@ -51,8 +52,8 @@ from pygame.locals import *
 
 * What `pygame` does.
 * We have to tell it to set up (equivalent of 'when green flag clicked')
-* What `.` means - like a broadcast, but sent to something specific. In this
-  case pygame.
+* What `something.somethingelse()` means - like a broadcast, but sent to something specific. In this
+  case pygame. _Emphasise that the brackets are important._
 * It's called "calling a method".
 
 ```python
@@ -75,6 +76,8 @@ screen_rect = Rect(0, 0, 640, 480)
   * It's sent only to pygame
   * We send some information with the message
   * It sends some information back
+* But we don't send this just to pygame. We send it to the `display` variable which belongs to
+  pygame.
 
 ```python
 screen = pygame.display.set_mode(screen_rect.size)
@@ -101,6 +104,8 @@ small_ball_image = pygame.transform.scale(ball_image, (50, 50))
 * Each script on a sprite is called a 'method' and starts with `def`.
 * The first method, `__init__` is special and runs when a new Ball is created.
 * Talk through the lines.
+* Say that `self` refers to the ball object itself. `self.image` means a variable
+  called `image` belonging to the ball object.
 
 ```python
 class Ball(pygame.sprite.Sprite):
@@ -134,6 +139,8 @@ all = pygame.sprite.RenderUpdates()
 * The `all` variable contains a list of all the different sprites.
   pygame will draw these. So we need t make sure that the ball we've
   made is within that list.
+* So we send a message ("call a method") to the 'all' list,
+  asking it to add the ball to itself.
 
 ```python
 all.add(ball)
