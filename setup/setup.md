@@ -13,4 +13,11 @@ You need to install four things:
 
 Check that you can access http://www.github.com _and_ https://www.github.com/
 
+Things to print
+---------------
+
+* [Python quick reference sheet](http://sleet.aos.wisc.edu/~gpetty/wp/wp-content/uploads/2011/10/Python_qr.pdf)
+* [Longer Python quick reference](http://www.cogsci.rpi.edu/~destem/gamedev/python.pdf)
+* [Pygame quick reference](http://www.cogsci.rpi.edu/~destem/gamedev/pygame.pdf)
+
 Teachers/guides: see [the rationale behind these decisions](rationale.md).

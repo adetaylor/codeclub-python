@@ -39,6 +39,8 @@ I've added some notes in [a separate document](setup/setup.md). But it's certain
 * Network connectivity.
 * An IDE.
 
+The code is being kept on github which enables reasonably efficient easy checkouts.
+
 Evolution of the course of exercises
 ---------------------------------------
 
@@ -70,3 +72,10 @@ Evolution of the course of exercises
 
   We should build up to a more complex network game, possibly in teams somehow.
 
+To do
+------
+
+* Create Scratch-Python conversion guide. (Not just the blocks, but also sprites, sounds, variables and broadcasts)
+* Figure out networking and/or physics.
+* Work out the best way to check out a certain branch within PyCharm.
+* Think about whether PyCharm is truly the best IDE for the job. An open-source one would be better...
