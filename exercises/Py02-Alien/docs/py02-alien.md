@@ -21,7 +21,7 @@ you need to get the game code from the Internet.
 ![PyCharm git window](pycharm-git-window.png)
 5. It will ask you for "git repository URL". Enter, very exactly:
 ```
-git@github.com:adetaylor/codeclub-python-alien.git
+https://github.com/adetaylor/codeclub-python-alien.git
 ```
 6. Click Clone and then Yes.
 7. You should see a window like this:
