@@ -14,9 +14,22 @@ Part One: Writing the game
 
 Just do what the guide tells you!
 
-Part Two: Challenge
+Challenge One
 -------------------
 
 You can only move the ball left and right, using the left and right keys.
 
 Improve the game so you can move it up and down as well.
+
+Challenge Two
+--------------
+
+Add another ball. Use the keys I and K to move it up and down, and J and L to move it left and right.
+
+The key codes you need are:
+* `K_j`
+* `K_l`
+* `K_i`
+* `K_k`
+
+Hint: you do _not_ need to add a new `class`.
