@@ -7,12 +7,9 @@ It assumes you're using `codeclub_pygame_handy_functions.py`.
 
 *Note for maintainers*: I haven't figured out how to make this look good yet.
 
-<table>
-<tr>
-<th>
 ![New sprite icons](new-sprite-icons.png)
-</th>
-<td>
+------------
+
 ```python```
 surface = pygame.image.load("c:\SomeFolder\SomeImage.png")
 ```
@@ -25,10 +22,6 @@ to use an image in a folder called 'data' in the same place
 as your script.
 
 To draw your own image, you can use Windows' built-in Paint program or use [Paint.NET](http://www.getpaint.net/).
-
-</td>
-</tr>
-</table>
 
 ![Sprite title and motion types](sprite-title-motion-types.png)
 --------
