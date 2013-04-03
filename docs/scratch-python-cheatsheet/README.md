@@ -5,7 +5,16 @@ Here's a conversion from Scratch to Python and PyGame.
 
 It assumes you're using `codeclub_pygame_handy_functions.py`.
 
-*Note for maintainers*: I haven't figured out how to make this look good yet.
+*Note for maintainers*: I haven't figured out how to make this look good yet. Here are some experiments. Possibly,
+there's no good way to do this in markdown.
+
+test table header                         | another test header
+------------------------------------------|---------------------
+a                                         | b
+c                                         | d
+![New sprite icons](new-sprite-icons.png) | So that image worked nicely
+![Block categories](block-categories.png) | So did that, but there's no way to put multi-line things in a table, so everything below here is using headings/text rather than a table. Shame.
+
 
 ![New sprite icons](new-sprite-icons.png)
 ------------
