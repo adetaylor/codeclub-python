@@ -72,22 +72,22 @@ Step 2: Try it out on your own computer
 1. Add another file called `simple.py` which looks like this:
 
    ```python
-from room import Room
-from message import Message
-from participant import Participant
-
-room = Room()
-janet = Participant(room)
-room.add_participant(janet)
-john = Participant(room)
-room.add_participant(john)
-justin = Participant(room)
-room.add_participant(justin)
-
-first_message = Message("Hello everyone!")
-
-janet.say(first_message)
-```
+   from room import Room
+   from message import Message
+   from participant import Participant
+   
+   room = Room()
+   janet = Participant(room)
+   room.add_participant(janet)
+   john = Participant(room)
+   room.add_participant(john)
+   justin = Participant(room)
+   room.add_participant(justin)
+   
+   first_message = Message("Hello everyone!")
+   
+   janet.say(first_message)
+   ```
 
    Before you run it - what do you expect? How many times do you expect to see "Hello everyone!" appear on the screen?
    
