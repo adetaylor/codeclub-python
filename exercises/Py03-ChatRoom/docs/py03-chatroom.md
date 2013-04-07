@@ -12,18 +12,18 @@ Step 1: Create classes for the chat room, messages, and participants
 2. Create three new files - called `message.py`, `room.py` and `participant.py`.
 3. `room.py` contains a class representing a chat room:
 
-```python
-class Room:
-	def __init__(self):
-		self.participants = []
-	
-	def add_participant(self, participant):
-		self.participants.append(participant)
-	
-	def say(self, message_text):
-		for p in self.participants:
-			p.heard(message_text)
-```
+   ```python
+   class Room:
+	   def __init__(self):
+		   self.participants = []
+	   
+	   def add_participant(self, participant):
+		   self.participants.append(participant)
+	   
+	   def say(self, message_text):
+		   for p in self.participants:
+			   p.heard(message_text)
+   ```
 
    Notice how it's a class, but _not_ a sprite. Classes can be any sort of 'object' or 'thing' in your program - not necessarily something you can visibly see on the screen. In this case, it's a room in which people can chat.
 
@@ -31,17 +31,17 @@ class Room:
 
 4. `participant.py` represents somebody who is in a chat room:
 
-```python
-class Participant:
-	def __init__(self, room):
-		self.room = room
-	
-	def say(self, message):
-		self.room.say(message)
-	
-	def heard(self, message):
-		print message.get_message_text() + "\n"
-```
+   ```python
+   class Participant:
+	   def __init__(self, room):
+		   self.room = room
+	   
+	   def say(self, message):
+		   self.room.say(message)
+	   
+	   def heard(self, message):
+		   print message.get_message_text() + "\n"
+   ```
 
    What happens when a participant `say`s something? What happens to the message? Does it end up within `heard`? How?
 
@@ -114,54 +114,54 @@ We want the *room* to be on one computer, and each *participant* to be on differ
 1. To make contact over the network, we're going to rely on another program called `Pyro4`. Add this code to the top of `room.py`:
 
    ```python
-import Pyro4
-```
+   import Pyro4
+   ```
 
 2. Then at the bottom of `room.py` add this:
 
    ```python
-room = Room()
+   room = Room()
+   
+   daemon = Pyro4.Daemon()
+   ns = Pyro4.locateNS()
+   uri = daemon.register(room)
+   ns.register("example.room", uri)
+   print "Chat room available and ready for connections!\n"
+   daemon.requestLoop()
+   ```
 
-daemon = Pyro4.Daemon()
-ns = Pyro4.locateNS()
-uri = daemon.register(room)
-ns.register("example.room", uri)
-print "Chat room available and ready for connections!\n"
-daemon.requestLoop()
-```
-
-You don't need to understand that... except that these magical objects called `ns` and `daemon` make the `room` available to other computers on the network.
+   You don't need to understand that... except that these magical objects called `ns` and `daemon` make the `room` available to other computers on the network.
 
 3. Run `room.py`. It should say "Chat room available and ready for connections!" Leave it running on *one* computer.
 
 4. In `participant.py`, we need to make even more complicated changes. Add this at the top:
 
    ```python
-import sys
-import Pyro4
-import threading
-from message import Message
-```
+   import sys
+   import Pyro4
+   import threading
+   from message import Message
+   ```
 
 5. And add this at the bottom:
 
    ```python
-sys.excepthook=Pyro4.util.excepthook
-room=Pyro4.Proxy("PYRONAME:example.room")
-daemon = Pyro4.Daemon()
-me=Participant(room)
-uri = daemon.register(me)
-room.add_participant(uri)
-
-t = threading.Thread(target=lambda: daemon.requestLoop())
-t.daemon = True
-t.start()
-
-while True:
-	text = raw_input().strip()
-	message = Message(text)
-	me.say(message)
-```
+   sys.excepthook=Pyro4.util.excepthook
+   room=Pyro4.Proxy("PYRONAME:example.room")
+   daemon = Pyro4.Daemon()
+   me=Participant(room)
+   uri = daemon.register(me)
+   room.add_participant(uri)
+   
+   t = threading.Thread(target=lambda: daemon.requestLoop())
+   t.daemon = True
+   t.start()
+   
+   while True:
+	   text = raw_input().strip()
+	   message = Message(text)
+	   me.say(message)
+   ```
 
 6. Finally - all your friends should run `participant.py`. You should be able to chat to each other!
 
