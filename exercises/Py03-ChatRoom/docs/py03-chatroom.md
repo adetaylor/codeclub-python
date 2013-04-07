@@ -165,14 +165,7 @@ We want the *room* to be on one computer, and each *participant* to be on differ
 
 6. Finally - all your friends should run `participant.py`. You should be able to chat to each other!
 
-Challenge 1: Multiple rooms
----------------------------
-
-* All of you are chatting on the same room. Change it so that there are two rooms.
-* Hint 1: Change `example.room` in both places.
-* Hint 2: Don't forget that *two* computers will need to run `room.py`.
-
-Challenge 2: Print the user name
+Challenge 1: Print the user name
 --------------------------------
 
 * It's not clear who is saying what. How can you modify things so that each message says who it's from?
@@ -180,7 +173,7 @@ Challenge 2: Print the user name
 * Hint 2: `message.py` only right now stores the message text. Improve it so that it also stores the username that the message comes from (for example, add `self.username`).
 * Hint 3: `participant.py` `heard` will need to print the username as well as the message contents.
 
-Challenge 3: Don't print your own messages
+Challenge 2: Don't print your own messages
 ------------------------
 
 (Make sure you've done Challenge 2 first!)
@@ -194,12 +187,19 @@ Challenge 3: Don't print your own messages
 		do_something()
 	```
 
+Challenge 3: Multiple rooms
+---------------------------
+
+* All of you are chatting on the same room. Change it so that there are two rooms.
+* Hint 1: Change `example.room` in both places.
+* Hint 2: Don't forget that *two* computers will need to run `room.py`.
+
 Challenge 4: Work out why a 'thread' is necessary
 --------------------------
 
 A "thread" means your program can do two things at once.
 
-In `participant.py` we need to create another thread. That's because the main thread is waiting for the user to type a message. So, why do we need another thread? What could it be doing?
+In `participant.py` we need to create another thread. That's because the main part of the program is always waiting for the user to type a message. So, why do we need another thread? What could it be doing?
 
 ------------------------
 ------------------------

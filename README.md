@@ -58,15 +58,13 @@ Evolution of the course of exercises
 
 	If anyone thinks that is pessimistic, you may wish to remember that some of these kids are actually dyslexic and struggle to read normal English very easily! Python is a massive step up from coloured Scratch blobs.
 
-* Py03-Aliens:
+* [Py03-Chatroom](exercises/Py03-Chatroom/docs/README.md):
 
-  We should guide them through making a more substantive change to the same game.
+  A networked chat room. It is probably quite optimistic to make this exercise 3. We need more simple Pygame stuff first.
 
 * Py04-Aliens 3:
 
-  At this point we do something to introduce networking. Maybe we can simply have two players. Or maybe one person controls the 'player' whilst all the other people on the network control the aliens.
-
-	Before we can get this far, we need to write a trivial module which integrates PyBonjour into PyGame, especially into its event loop. I am convinced we need to use PyBonjour for discovery to avoid faffing with IP addresses (I know it sounds appealing to teach kids about IP addresses, and I agree, but honestly that complexity will wipe out 50% of the code club session just through mistyping). For the subsequent communication, perhaps we need some form of Python RPC protocol. Security is not important for 10 year-olds.
+  At this point we do something to introduce networked games. Maybe we can simply have two players. Or maybe one person controls the 'player' whilst all the other people on the network control the aliens.
 
 * Subsequently:
 
@@ -75,7 +73,6 @@ Evolution of the course of exercises
 To do
 ------
 
-* Create Scratch-Python conversion guide. (Not just the blocks, but also sprites, sounds, variables and broadcasts)
-* Figure out networking and/or physics.
+* Create Scratch-Python conversion guide. (Not just the blocks, but also sprites, sounds, variables and broadcasts. There's a [start at this here, but it's incomplete](docs/scratch-python-cheatsheet/README.md).
 * Work out the best way to check out a certain branch within PyCharm.
 * Think about whether PyCharm is truly the best IDE for the job. An open-source one would be better...
