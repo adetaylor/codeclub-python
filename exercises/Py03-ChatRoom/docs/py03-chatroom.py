@@ -81,8 +81,8 @@ janet = Participant(room)
 room.add_participant(janet)
 john = Participant(room)
 room.add_participant(john)
-fred = Participant(room)
-room.add_participant(fred)
+justin = Participant(room)
+room.add_participant(justin)
 
 first_message = Message("Hello everyone!")
 
@@ -105,4 +105,106 @@ Step 3: Make it work between several computers
 
 We want it to work like this:
 
+![Diagram](Images.001.png)
+
+We want the *room* to be on one computer, and each *participant* to be on different computers. The *messages* will be sent across the network from a participant to the room, then sent out to each of the other participants.
+
+(In computing terms, the room is the "server" and each participant is a "client").
+
+1. To make contact over the network, we're going to rely on another program called `Pyro4`. Add this code to the top of `room.py`:
+
+   ```python
+import Pyro4
+```
+
+2. Then at the bottom of `room.py` add this:
+
+   ```python
+room = Room()
+
+daemon = Pyro4.Daemon()
+ns = Pyro4.locateNS()
+uri = daemon.register(room)
+ns.register("example.room", uri)
+print "Chat room available and ready for connections!\n"
+daemon.requestLoop()
+```
+
+You don't need to understand that... except that these magical objects called `ns` and `daemon` make the `room` available to other computers on the network.
+
+3. Run `room.py`. It should say "Chat room available and ready for connections!" Leave it running on *one* computer.
+
+4. In `participant.py`, we need to make even more complicated changes. Add this at the top:
+
+   ```python
+import sys
+import Pyro4
+import threading
+from message import Message
+```
+
+5. And add this at the bottom:
+
+   ```python
+sys.excepthook=Pyro4.util.excepthook
+room=Pyro4.Proxy("PYRONAME:example.room")
+daemon = Pyro4.Daemon()
+me=Participant(room)
+uri = daemon.register(me)
+room.add_participant(uri)
+
+t = threading.Thread(target=lambda: daemon.requestLoop())
+t.daemon = True
+t.start()
+
+while True:
+	text = raw_input().strip()
+	message = Message(text)
+	me.say(message)
+```
+
+6. Finally - all your friends should run `participant.py`. You should be able to chat to each other!
+
+Challenge 1: Multiple rooms
+---------------------------
+
+* All of you are chatting on the same room. Change it so that there are two rooms.
+* Hint 1: Change `example.room` in both places.
+* Hint 2: Don't forget that *two* computers will need to run `room.py`.
+
+Challenge 2: Print the user name
+--------------------------------
+
+* It's not clear who is saying what. How can you modify things so that each message says who it's from?
+* Hint 1: `participant.py` should ask the user for their name when it starts up, and store it in a variable (for example, `username`).
+* Hint 2: `message.py` only right now stores the message text. Improve it so that it also stores the username that the message comes from (for example, add `self.username`).
+* Hint 3: `participant.py` `heard` will need to print the username as well as the message contents.
+
+Challenge 3: Don't print your own messages
+------------------------
+
+(Make sure you've done Challenge 2 first!)
+
+* Hint 1: The message object says who the username is that sent the message.
+* Hint 2: You know who you are.
+* Hint 3: To check if two bits of text are the different, do this:
+
+  ```python
+	if not oneBitOfText is anotherBitOfTextt
+		do_something()
+	```
+
+Challenge 4: Work out why a 'thread' is necessary
+--------------------------
+
+A "thread" means your program can do two things at once.
+
+In `participant.py` we need to create another thread. That's because the main thread is waiting for the user to type a message. So, why do we need another thread? What could it be doing?
+
+------------------------
+------------------------
+------------------------
+------------------------
+------------------------
+------------------------
 

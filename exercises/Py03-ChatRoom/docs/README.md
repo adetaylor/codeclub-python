@@ -6,5 +6,6 @@ Teacher notes for Py03-ChatRoom
 Goals:
 
 * Introduce networking
+* Show that classes are not always sprites.
 * Show that there's more to programming than just games (but non-game stuff can be fun too...)
 
