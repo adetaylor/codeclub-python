@@ -13,4 +13,5 @@ Goals:
 Still to do before kids get near this!
 ------------
 
-* Make it actually work over a network by telling the Pyro daemon to bind to the network address not localhost.
+* Test it _actually_ works over a network!
+* Figure out how to explain the awkward line which involves www.google.com, if needs be.
