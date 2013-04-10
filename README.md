@@ -53,11 +53,7 @@ Evolution of the course of exercises
 
   The first exercise is for the kids to be talked through Python to pick up some basic syntax. There is a single challenge for them to do.
 
-* [PyNotSureYet-Guess](exercises/PyNotSureYet-Guess/README.md):
-
-  This exercise has been produced by Peter Lewin and is probably similar in scope to the initial Ball exercise. I fear there is duplication and one of the exercises will need modification to be a bit less teacher-lead.
-
-* [Py02-Alien](exercises/Py02-Alien/docs/README.md):
+* [Py03-Alien](exercises/Py03-Alien/docs/README.md):
 
   It's been proposed that the Python exercises start off by shadowing one or more of the Scratch exercises the kids will already have done.
 
@@ -65,13 +61,19 @@ Evolution of the course of exercises
 
 	The intention of the first Python session is to get the kids used to looking through actual textual code, and identifying clues. If we can end the session with an idea that a 'class' relates to a sprite on the screen, we're doing well.
 
-* [PyNotSureYet-Felix_Tutorial](exercises/PyNotSureYet-Felix_Tutorial/README.md):
+* [PyNotSureYet-Guess](exercises/PyNotSureYet-Guess/README.md):
 
-  This exercise has been produced by Peter Lewin and I think it slots pretty well after the ball, being just slightly more complicated.
+  This exercise has been produced by Peter Lewin and is probably similar in scope to the initial Ball exercise. I am inclined to make this more difficult and ask the kids to do more with this one by themselves, thus making it appropriate as a third exercise perhaps? But we could do it the other way round.
 
-* [Py03-Chatroom](exercises/Py03-Chatroom/docs/README.md):
+* [Py04-Felix](exercises/Py04-Felix/README.md):
 
-  A networked chat room. It is probably quite optimistic to make this exercise 3. We need more simple Pygame stuff first.
+  This exercise has been produced by Peter Lewin and I think it slots pretty well after the ball and alien, as they actually have to do stuff here (instead of, mostly, just looking through the code as with the Alien exercise). We might want to adjust it so that they have to do slightly more. Perhaps.
+
+* Additional unwritten Scratch project conversion, or two.
+
+* [Py06-Chatroom](exercises/Py06-Chatroom/docs/README.md):
+
+  A networked chat room.
 
 * Subsequently:
 
@@ -87,3 +89,5 @@ To do
 * Merge in Peter Lewin's exercises which are [here](exercises/PyNotSureYet-Guess/README.md) and [here](exercises/PyNotSureYet-Felix_Tutorial/README.md).
   * Figure out where they go relative to the other exercises
 	* Come up with a single ```codeclub.py``` library for use in all exercises which emulates Scratch sprites and does whatever else we need to hide from the kids for simplicity's sake.
+	* Work out whether we're nervous about getting the kids to declare classes. Ade's exercises do this. Peter's avoid it. Ade's rationale: the kids now have a good concept of attaching scripts to Sprites in Scratch, so I think it will make logical sense for them to do the same in Python.
+	* In general make Peter and Ade's stuff more consistent.
