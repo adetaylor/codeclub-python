@@ -53,6 +53,10 @@ Evolution of the course of exercises
 
   The first exercise is for the kids to be talked through Python to pick up some basic syntax. There is a single challenge for them to do.
 
+* [PyNotSureYet-Guess](exercises/PyNotSureYet-Guess/README.md):
+
+  This exercise has been produced by Peter Lewin and is probably similar in scope to the initial Ball exercise. I fear there is duplication and one of the exercises will need modification to be a bit less teacher-lead.
+
 * [Py02-Alien](exercises/Py02-Alien/docs/README.md):
 
   It's been proposed that the Python exercises start off by shadowing one or more of the Scratch exercises the kids will already have done.
@@ -61,19 +65,17 @@ Evolution of the course of exercises
 
 	The intention of the first Python session is to get the kids used to looking through actual textual code, and identifying clues. If we can end the session with an idea that a 'class' relates to a sprite on the screen, we're doing well.
 
-	If anyone thinks that is pessimistic, you may wish to remember that some of these kids are actually dyslexic and struggle to read normal English very easily! Python is a massive step up from coloured Scratch blobs.
+* [PyNotSureYet-Felix_Tutorial](exercises/PyNotSureYet-Felix_Tutorial/README.md):
+
+  This exercise has been produced by Peter Lewin and I think it slots pretty well after the ball, being just slightly more complicated.
 
 * [Py03-Chatroom](exercises/Py03-Chatroom/docs/README.md):
 
   A networked chat room. It is probably quite optimistic to make this exercise 3. We need more simple Pygame stuff first.
 
-* Py04-Aliens 3:
-
-  At this point we do something to introduce networked games. Maybe we can simply have two players. Or maybe one person controls the 'player' whilst all the other people on the network control the aliens.
-
 * Subsequently:
 
-  We should build up to a more complex network game, possibly in teams somehow.
+  We should build up to a network game, possibly in teams somehow. I also think use of a simple physics library, for example [this one](http://www.petercollingridge.co.uk/pygame-physics-simulation) could make for fun games that just wouldn't be possible in Scratch.
 
 To do
 ------
