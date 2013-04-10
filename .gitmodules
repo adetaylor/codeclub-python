@@ -10,3 +10,6 @@
 [submodule "exercises/Py06-ChatRoom/code-solution"]
 	path = exercises/Py06-ChatRoom/code-solution
 	url = git@github.com:adetaylor/codeclub-python-chatroom.git
+[submodule "exercises/Py04-Felix/code-problem"]
+	path = exercises/Py04-Felix/code-problem
+	url = git@github.com:adetaylor/codeclub-python-felix.git
