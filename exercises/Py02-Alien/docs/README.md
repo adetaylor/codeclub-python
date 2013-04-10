@@ -1,7 +1,7 @@
 Teacher notes for Py02-Alien
 ============================
 
-[Student handout](py02-alien.md)
+[Student handout](student-handout.md)
 
 Goals:
 

@@ -1,3 +1,6 @@
+Guessing game
+=============
+
 Intro
 -----
 Now for something completely different! We are going to use a programming language called 'Python' to write a game where you can play against the computer in a number guessing game.  The computer will always be able to guess your number in 7 goes - can you do the same?

@@ -1,3 +1,6 @@
+Felix and Herbert - in Python
+==========================
+
 INTRO
 -----
 
