@@ -109,4 +109,5 @@ To do
   * Figure out where they go relative to the other exercises
 	* Come up with a single ```codeclub.py``` library for use in all exercises which emulates Scratch sprites and does whatever else we need to hide from the kids for simplicity's sake.
 	* Work out whether we're nervous about getting the kids to declare classes. Ade's exercises do this. Peter's avoid it. Ade's rationale: the kids now have a good concept of attaching scripts to Sprites in Scratch, so I think it will make logical sense for them to do the same in Python.
+	* Decide if we want to have a ```main``` function, or just have statements directly executed at the top level of the script.
 	* In general make Peter and Ade's stuff more consistent.
