@@ -49,4 +49,8 @@ Markdown for documents
 ----------------------
 
 Just because it's easy to edit and for git to merge, so multiple people can be working on these
-projects without the risk of binary files having merge conflicts.
+projects without the risk of binary files having merge conflicts. It also has the advantage that it
+can automatically show nicely formatted Python code.
+
+On the other hand it's proving to be an almighty pain for constructing the Scratch-Python cheatsheet,
+and it's hopeless for pretty formatting along the lines of the Scratch CodeClub exercises.
