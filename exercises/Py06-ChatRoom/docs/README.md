@@ -1,7 +1,7 @@
-Teacher notes for Py03-ChatRoom
+Teacher notes for Py06-ChatRoom
 ============================
 
-[Student handout](py03-chatroom.md)
+[Student handout](student-handout.md)
 
 Goals:
 
