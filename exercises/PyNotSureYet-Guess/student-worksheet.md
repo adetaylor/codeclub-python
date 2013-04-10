@@ -44,7 +44,7 @@ print 'Hello.  I hope you are well today.'
 print 'I am thinking of a whole number, between 1 and 100 inclusive'
 print 'I will give you 8 goes at guessing it, and tell you whether it is higher or lower than your guess'
 print '(I am feeling generous, you should only need 7 goes)'
-```python
+```
 
 You can change the words that are printed out to whatever you want.
 
