@@ -3,6 +3,8 @@ INTRO
 
 In this game, we revisit Felix and Herbert, who we played with our first Code Club!  This time however, we will be writing the game using Python.
 
+![Image of Felix and Herbert game](felix_and_herbert_python.png)
+
 In our code, we are going to make use of two 'modules' to help us:
 
 "PyGame": This is a module that provides everything we need to draw graphics, use sprites and play sounds. All the things you need for a game!
