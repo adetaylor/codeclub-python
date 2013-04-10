@@ -72,13 +72,13 @@ Evolution of the course of exercises
 
   The first exercise is for the kids to be talked through Python to pick up some basic syntax. There is a single challenge for them to do.
 
-* [Py03-Alien](exercises/Py03-Alien/docs/README.md):
+* [Py02-Alien](exercises/Py02-Alien/docs/README.md):
 
   It's been proposed that the Python exercises start off by shadowing one or more of the Scratch exercises the kids will already have done.
 
   I think that's a great idea but I don't personally have time, so I've made a stab at a first exercise or two by starting with one of the PyGame examples. At least this saves the step of writing and debugging a game.
 
-	The intention of the first Python session is to get the kids used to looking through actual textual code, and identifying clues. If we can end the session with an idea that a 'class' relates to a sprite on the screen, we're doing well.
+	The intention of this session is to get the kids used to looking through actual textual code, and identifying clues. If we can end the session with an idea that a 'class' relates to a sprite on the screen, we're doing well.
 
 * [PyNotSureYet-Guess](exercises/PyNotSureYet-Guess/README.md):
 
@@ -88,9 +88,9 @@ Evolution of the course of exercises
 
   This exercise has been produced by Peter Lewin and I think it slots pretty well after the ball and alien, as they actually have to do stuff here (instead of, mostly, just looking through the code as with the Alien exercise). We might want to adjust it so that they have to do slightly more. Perhaps.
 
-* Additional unwritten Scratch project conversion, or two.
+* Additional unwritten Scratch project conversion, or two. Definitely graphical PyGame stuff is needed.
 
-* [Py06-Chatroom](exercises/Py06-Chatroom/docs/README.md):
+* [Py06-ChatRoom](exercises/Py06-ChatRoom/docs/README.md):
 
   A networked chat room.
 
