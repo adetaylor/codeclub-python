@@ -1,9 +1,9 @@
-Py03 – Chat Room
+Py06 – Chat Room
 ============
 
 Introduction
 ------------
-This isn't a game! You're going to create a chat room to talk to your classmates across the computer network.
+This isn't a game! But it's nearly as good. You're going to create a chat room to talk to your classmates across the computer network.
 
 Step 1: Create classes for the chat room, messages, and participants
 -------------------------------------
