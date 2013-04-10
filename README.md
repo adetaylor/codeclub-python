@@ -41,6 +41,11 @@ I've added some notes in [a separate document](setup/setup.md). But it's certain
 
 The code is being kept on github which enables reasonably efficient easy checkouts.
 
+Why on earth are these using PyCharm, github, markdown etc.?
+---------------------------------------
+Good questions and I'm not wedded to any of these decisions, but [I have documented my reasoning here](setup/rationale.md)
+
+
 Evolution of the course of exercises
 ---------------------------------------
 
