@@ -84,7 +84,7 @@ Evolution of the course of exercises
 
   This exercise has been produced by Peter Lewin and is probably similar in scope to the initial Ball exercise. I am inclined to make this more difficult and ask the kids to do more with this one by themselves, thus making it appropriate as a third exercise perhaps? But we could do it the other way round.
 
-* [Py04-Felix](exercises/Py04-Felix/README.md):
+* [Py04-Felix](exercises/Py04-Felix/docs/README.md):
 
   This exercise has been produced by Peter Lewin and I think it slots pretty well after the ball and alien, as they actually have to do stuff here (instead of, mostly, just looking through the code as with the Alien exercise). We might want to adjust it so that they have to do slightly more. Perhaps.
 
