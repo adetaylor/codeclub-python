@@ -13,9 +13,9 @@ In our code, we are going to make use of two 'modules' to help us:
 "PyGame": This is a module that provides everything we need to draw graphics, use sprites and play sounds. All the things you need for a game!
 "codeclub": This is a some code to make our code a little simpler. It is provided for you as "codeclub.py".  You can look in this file to see how it works, but you don't need to understand it to write this game.
 
-You are also provided with a script to get you started, called "felix0.py". You do need to understand this script, as you will be writing more code to go here.
+You are also provided with a script to get you started, called "felix.py". You do need to understand this script, as you will be writing more code to go here.
 
-felix0.py contains the following code:
+felix.py contains the following code:
 
 ```python
 #Import Modules
