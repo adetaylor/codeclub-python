@@ -124,3 +124,9 @@ To do
 * See the 'TODO' items for each individual exercise.
 * Produce at least one more exercise which repeats one of the Scrath exercises the kids have done already.
 * Produce the last two or three exercises which Ade thinks should be a networked game involving physics, possibly spread over more than one session.
+* Help more people check this out and make it better.
+* Make the setup procedures sane.
+  * They don't even mention Pyro yet
+  * There are too many things to install
+  * There might be dependencies on git and ssh that I haven't figured out
+  * Some of this could be avoided if we switched to Eclipse/PyDev which has a pure-Java git plugin, but it just appears to be plain rubbish. See IDE TODO item above.
