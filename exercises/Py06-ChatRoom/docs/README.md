@@ -15,3 +15,4 @@ Still to do before kids get near this!
 
 * Test it _actually_ works over a network!
 * Figure out how to explain the awkward line which involves www.google.com, if needs be.
+* Work out who runs the Pyro nameserver and who runs the room, in a typical classroom environment.

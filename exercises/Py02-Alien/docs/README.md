@@ -20,3 +20,10 @@ Things to point out:
 Practical things:
 
 * They can't break anything. Ensure they make a COPY of the exercise. This needs more thought.
+
+TODO
+----
+
+* Spread the challenges throughout the exercise instead of all being at the end. Possibly.
+* Work out if the github stuff is going to actually work.
+* Improve handout/teacher notes with notes about everything that can go wrong with the infrastructure (github etc.)

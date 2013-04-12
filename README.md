@@ -98,17 +98,29 @@ Evolution of the course of exercises
 
   We should build up to a network game, possibly in teams somehow. I also think use of a simple physics library, for example [this one](http://www.petercollingridge.co.uk/pygame-physics-simulation) could make for fun games that just wouldn't be possible in Scratch.
 
+License 
+-------
+
+Adrian's bits are provisionally licensed under CC BY-NC-SA.
+
 To do
 ------
 
-* Create Scratch-Python conversion guide. (Not just the blocks, but also sprites, sounds, variables and broadcasts. There's a [start at this here, but it's incomplete](docs/scratch-python-cheatsheet/README.md).
+(Non-exhaustive!)
+
+* Create Scratch-Python conversion guide. (Not just the blocks, but also sprites, sounds, variables and broadcasts. There's a [start at this here, but it's incomplete](docs/scratch-python-cheatsheet/README.md). Tim Morley has volunteered to format it nicely once we've got the information in place. We need to do the merge of Pete Lewin's ```codeclub.py``` module first - see below.
 * Work out the best way to check out a certain branch within PyCharm.
 * Think about whether PyCharm is truly the best IDE for the job. An open-source one would be better...
-* Work out tabs versus spaces
 * Merge in Peter Lewin's exercises which are [here](exercises/PyNotSureYet-Guess/README.md) and [here](exercises/PyNotSureYet-Felix_Tutorial/README.md).
   * Figure out where they go relative to the other exercises
   * Come up with a single ```codeclub.py``` library for use in all exercises which emulates Scratch sprites and does whatever else we need to hide from the kids for simplicity's sake.
   * Work out whether we're nervous about getting the kids to declare classes. Ade's exercises do this. Peter's avoid it. Ade's rationale: the kids now have a good concept of attaching scripts to Sprites in Scratch, so I think it will make logical sense for them to do the same in Python.
   * Decide if we want to have a ```main``` function, or just have statements directly executed at the top level of the script.
   * In general make Peter and Ade's stuff more consistent.
-* Be consistent on indentation. Both Peter and Ade are guilty here...
+* Work out tabs versus spaces. Be consistent on indentation. Both Peter and Ade are guilty here...
+* Test each exercise on a variety of hardware. Especially the networked one
+* Figure out a simple physics-based exercise
+* Work Ball, Aliens and Guess up into a consistent series of a first three exercises, instead of just three random things going over the same ground. (Pete and Ade will probably figure this out).
+* See the 'TODO' items for each individual exercise.
+* Produce at least one more exercise which repeats one of the Scrath exercises the kids have done already.
+* Produce the last two or three exercises which Ade thinks should be a networked game involving physics, possibly spread over more than one session.

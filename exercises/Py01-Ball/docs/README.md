@@ -204,3 +204,10 @@ Challenge
 
 This is all going to be very terrifying for them so it's something simple where
 they copy existing code.
+
+TODO
+----
+
+* Fix code-problem directory. It seems to contain the solution.
+* Possibly add another challenge.
+* Add another sprite (e.g. a goal, a football background) in the data directory so kids who want to push it further can have more possibilities.
