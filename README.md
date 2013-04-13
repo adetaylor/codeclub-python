@@ -111,11 +111,12 @@ To do
 * Create Scratch-Python conversion guide. (Not just the blocks, but also sprites, sounds, variables and broadcasts. There's a [start at this here, but it's incomplete](docs/scratch-python-cheatsheet/README.md). Tim Morley has volunteered to format it nicely once we've got the information in place. We need to do the merge of Pete Lewin's ```codeclub.py``` module first - see below.
 * Work out the best way to check out a certain branch within PyCharm.
 * Think about whether PyCharm is truly the best IDE for the job. An open-source one would be better...
+* Decide if we are doing Python 2.7 or 3.x. Ade's assuming 2.7. Not sure about Pete. Setup instructions will need changing and maybe the exercises too.
 * Merge in Peter Lewin's exercises which are [here](exercises/PyNotSureYet-Guess/README.md) and [here](exercises/PyNotSureYet-Felix_Tutorial/README.md).
   * Figure out where they go relative to the other exercises
   * Come up with a single ```codeclub.py``` library for use in all exercises which emulates Scratch sprites and does whatever else we need to hide from the kids for simplicity's sake.
-  * Work out whether we're nervous about getting the kids to declare classes. Ade's exercises do this. Peter's avoid it. Ade's rationale: the kids now have a good concept of attaching scripts to Sprites in Scratch, so I think it will make logical sense for them to do the same in Python.
-  * Decide if we want to have a ```main``` function, or just have statements directly executed at the top level of the script.
+  * Modify Pete's Felix exercise to include classes since Ade's prior exercises introduce the concept.
+  * Modify Ade's exercises to use a ```main``` function since that seems to be best practice and Pete's exercises do it
   * In general make Peter and Ade's stuff more consistent.
 * Work out tabs versus spaces. Be consistent on indentation. Both Peter and Ade are guilty here...
 * Test each exercise on a variety of hardware. Especially the networked one
