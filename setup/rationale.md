@@ -6,9 +6,7 @@ PyCharm
 
 I know nothing much about Python IDEs. PyCharm was recommended and seems to be quite good.
 
-The school PCs I'm using are Atom netbooks with 800x600 screens. I have therefore sadly
-ruled out Eclipse/PyDev, even though it's open source and would therefore be preferable
-from the perspective of schools not dependending on proprietary stuff.
+The school PCs I'm using are Atom netbooks with small screens. Eclipse is therefore probably out of the question.
 
 PyCharm have free educational licenses but it seems some ID is required. I haven't got to the
 bottom of this yet.
