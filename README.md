@@ -111,7 +111,7 @@ To do
 * Create Scratch-Python conversion guide. (Not just the blocks, but also sprites, sounds, variables and broadcasts. There's a [start at this here, but it's incomplete](docs/scratch-python-cheatsheet/README.md). Tim Morley has volunteered to format it nicely once we've got the information in place. We need to do the merge of Pete Lewin's ```codeclub.py``` module first - see below.
 * Work out the best way to check out a certain branch within PyCharm.
 * Think about whether PyCharm is truly the best IDE for the job. An open-source one would be better...
-* Decide if we are doing Python 2.7 or 3.x. Ade's assuming 2.7. Not sure about Pete. Setup instructions will need changing and maybe the exercises too.
+* Decide if we are doing Python 2.7 or 3.x. Ade and Pete both assuming 2.7.
 * Merge in Peter Lewin's exercises which are [here](exercises/PyNotSureYet-Guess/README.md) and [here](exercises/PyNotSureYet-Felix_Tutorial/README.md).
   * Figure out where they go relative to the other exercises
   * Come up with a single ```codeclub.py``` library for use in all exercises which emulates Scratch sprites and does whatever else we need to hide from the kids for simplicity's sake.
