@@ -10,7 +10,7 @@ You need to install several things:
 
 * [Python 2.7](http://www.python.org/getit/) - I use the [32-bit version on Windows](http://www.python.org/ftp/python/2.7.3/python-2.7.3.msi)
 * [PyGame 1.9.1](http://www.pygame.org/download.shtml) - specifically use [this version](http://pygame.org/ftp/pygame-1.9.1.win32-py2.7.msi) if you're on Windows, with 32-bit Python 2.7 as suggested above
-* [Pyro4](http://pythonhosted.org/Pyro4/install.html#obtaining-and-installing-pyro)
+* [Pyro4](http://pythonhosted.org/Pyro4/install.html#obtaining-and-installing-pyro) - to install this, I first had to install [the unofficial Windows version of distribute](http://www.lfd.uci.edu/~gohlke/pythonlibs/#distribute) and [of pip](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip) then just ```pip install Pyro4```.
 * Later there may be a physics library.
 
 And either PyCharm or Eclipse or something else depending on what on earth we use for an IDE. (See [the explanation of why I'm unhappy with both options](rationale.md)).
