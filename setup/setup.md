@@ -25,6 +25,7 @@ If we use Eclipse:
 * Within that you will need to install PyDev from the update site http://pydev.org/updates, and egit from the main Juno update site. If we continue to use Eclipse then more precise instructions will be forthcoming, but otherwise you can muddle through.
 * Later all this Eclipse stuff can be a self-contained zip file which you can just extract to anywhere on the PC and therefore in some senses it's easier to install than PyCharm
 * The PCs will also need to have Java.
+* [There is a provisional setup guide here](python-and-eclipse-setup-guide.md)
 
 Check that you can access http://www.github.com _and_ https://www.github.com/
 
