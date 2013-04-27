@@ -125,3 +125,10 @@ To do
 * See the 'TODO' items for each individual exercise.
 * Produce at least one more exercise which repeats one of the Scrath exercises the kids have done already.
 * Produce the last two or three exercises which Ade thinks should be a networked game involving physics, possibly spread over more than one session.
+
+Possible future projects
+---------------
+
+Some of these look quite good as inspiration:
+* http://www.freewebs.com/silacron/games.htm (only 192 simple lines; has computer opponent; could be converted to be a network game perhaps)
+
