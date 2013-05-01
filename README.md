@@ -12,13 +12,13 @@ Most importantly: how to contribute!
 1. Ensure you have a github account
 2. Click the Fork button above (assuming you're reading this online)
 3. You will get your own copy of it all stored on github (with the exception of the code for the exercises - more on that in a moment)
-4. ```git clone``` as per the github instructions.
+4. ```git clone``` as per the github instructions. _But_ use ```--recursive``` too, for reasons shown below.
 5. On your computer, edit, ```git commit```, ```git push``.
 6. You should see the results on your own github page.
 7. Let me know and I'll merge the changes back into my repository. This is trivial with github. If you want an easy way to ask me, click the Pull Request button. Or, if anyone else wants to act as the master repository, that's fine too.
 
 However there is one thorn in the side: the code for the exercises uses something called "submodules". This means the main git repository just contains references to other git repositories for the code. The reasoning behind this is explained under the rationale section, below. But for you it has some implications:
-* After doing ```git clone``` you will need to type ```git submodule update --init``` to fetch the exercise code.
+* When doing ```git clone``` you will need to type ```git clone --recursive``` to fetch the exercise code as shown above.
 * When you do a fork, you will just be forking the main repository not the code for the exercises. You can fork them too of course - please do - but you'll have to click the Fork button separately, and you'll need to do ```git remote add my-fork some-github-url-here``` to point your local copy to your new github repository then ```git push my-fork master```.
 
 All of those concerns only apply to the submodules containing the exercise _code_, not their documentation nor the central docs.
