@@ -94,7 +94,7 @@ Evolution of the course of exercises
 
   A networked chat room.
 
-* [Py07-Airport](exercise/Py07-Airport/docs/README.md):
+* [Py07-Airport](exercises/Py07-Airport/docs/README.md):
 
   A network game.
 
