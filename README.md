@@ -94,9 +94,11 @@ Evolution of the course of exercises
 
   A networked chat room.
 
-* Subsequently:
+* [Py07-Airport](exercise/Py07-Airport/docs/README.md):
 
-  We should build up to a network game, possibly in teams somehow. I also think use of a simple physics library, for example [this one](http://www.petercollingridge.co.uk/pygame-physics-simulation) could make for fun games that just wouldn't be possible in Scratch.
+  A network game.
+
+Future developments could include a simple physics library but I think a term will be pretty full with all the above.
 
 License 
 -------
