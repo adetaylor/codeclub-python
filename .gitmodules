@@ -16,3 +16,6 @@
 [submodule "exercises/Py04-Felix/code-solution"]
 	path = exercises/Py04-Felix/code-solution
 	url = git@github.com:adetaylor/codeclub-python-felix.git
+[submodule "exercises/Py07-Airport/code-solution"]
+	path = exercises/Py07-Airport/code-solution
+	url = git@github.com:adetaylor/codeclub-python-airport.git
