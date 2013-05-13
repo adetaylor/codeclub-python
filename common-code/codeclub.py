@@ -49,7 +49,8 @@ def load_sound(name):
 		def play(self): pass
 	if not pygame.mixer or not pygame.mixer.get_init():
 		return NoneSound()
-	fullname = os.path.join('data', name)
+	main_dir = os.path.split(os.path.abspath(__file__))[0]
+	fullname = os.path.join(main_dir, 'data', name)
 	try:
 		sound = pygame.mixer.Sound(fullname)
 	except pygame.error, message:
@@ -59,6 +60,7 @@ def load_sound(name):
 
 def start_music(file):
 	if pygame.mixer:
+		main_dir = os.path.split(os.path.abspath(__file__))[0]
 		music = os.path.join(main_dir, 'data', file)
 		pygame.mixer.music.load(music)
 		pygame.mixer.music.play(-1)
