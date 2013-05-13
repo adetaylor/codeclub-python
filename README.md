@@ -28,7 +28,7 @@ Motivation: why Python?
 
 Actually, none. Scratch is great and just right for kids of this age. However, existing CodeClub wisdom seems to be that two terms of Scratch is enough, and we should move to more 'advanced' languages.
 
-HTML/JavaScript is not my _personal_ idea of awesome, hence I'm joining in with subversive efforts to come up with a Python alternative.
+There's a third term of HTML but after that we should probably go back to real imperative programming, and Python is the choice.
 
 Will the kids want to do Python?
 ------------------------
@@ -66,7 +66,7 @@ Good questions and I'm not wedded to any of these decisions, but [I have documen
 
 There are some [highly provisional coding standards here](docs/code-guidelines.md).
 
-Evolution of the course of exercises
+Exercises
 ---------------------------------------
 
 * [Py01-Ball](exercises/Py01-Ball/docs/README.md):
@@ -111,17 +111,15 @@ To do
 * Work out the best way to check out a certain branch within PyCharm.
 * Think about whether PyCharm is truly the best IDE for the job. An open-source one would be better...
 * Merge in Peter Lewin's exercises which are [here](exercises/PyNotSureYet-Guess/README.md) and [here](exercises/PyNotSureYet-Felix_Tutorial/README.md).
-  * Figure out where they go relative to the other exercises
-  * Come up with a single ```codeclub.py``` library for use in all exercises which emulates Scratch sprites and does whatever else we need to hide from the kids for simplicity's sake.
+  * Use Peter's nice ```codeclub.py``` in all the exercises.
   * Modify Pete's Felix exercise to include classes since Ade's prior exercises introduce the concept.
   * Modify Ade's exercises to use a ```main``` function since that seems to be best practice and Pete's exercises do it
   * In general make Peter and Ade's stuff more consistent.
-* Work out tabs versus spaces. Be consistent on indentation. Both Peter and Ade are guilty here...
+* Change all spaces to tabs.
 * Test each exercise on a variety of hardware. Especially the networked one
-* Figure out a simple physics-based exercise
-* Work Ball, Aliens and Guess up into a consistent series of a first three exercises, instead of just three random things going over the same ground. (Pete and Ade will probably figure this out).
+* Figure out a simple physics-based exercise??
 * See the 'TODO' items for each individual exercise.
-* Produce at least one more exercise which repeats one of the Scrath exercises the kids have done already.
+* Produce at least one more exercise which repeats one of the Scratch exercises the kids have done already.
 * Produce the last two or three exercises which Ade thinks should be a networked game involving physics, possibly spread over more than one session.
 * Help more people check this out and make it better.
 * Make the setup procedures sane.
