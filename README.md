@@ -64,6 +64,7 @@ Why on earth are these using PyCharm, github, markdown etc.?
 ---------------------------------------
 Good questions and I'm not wedded to any of these decisions, but [I have documented my reasoning here](setup/rationale.md)
 
+There are some [highly provisional coding standards here](docs/code-guidelines.md).
 
 Evolution of the course of exercises
 ---------------------------------------
@@ -80,9 +81,9 @@ Evolution of the course of exercises
 
 	The intention of this session is to get the kids used to looking through actual textual code, and identifying clues. If we can end the session with an idea that a 'class' relates to a sprite on the screen, we're doing well.
 
-* [PyNotSureYet-Guess](exercises/PyNotSureYet-Guess/README.md):
+* [Py03-Guess](exercises/Py03-Guess/README.md):
 
-  This exercise has been produced by Peter Lewin and is probably similar in scope to the initial Ball exercise. I am inclined to make this more difficult and ask the kids to do more with this one by themselves, thus making it appropriate as a third exercise perhaps? But we could do it the other way round.
+  This exercise has been produced by Peter Lewin and was initially intended to be a first exercise, i.e. similar in scope to Ball. I have ramped up the difficulty level so that it is the first one the kids will program entirely by themselves.
 
 * [Py04-Felix](exercises/Py04-Felix/docs/README.md):
 
@@ -103,7 +104,7 @@ Future developments could include a simple physics library but I think a term wi
 License 
 -------
 
-Adrian's bits are provisionally licensed under CC BY-NC-SA.
+Adrian's bits are provisionally licensed under CC BY-NC-SA. This is slightly less restrictive than the Scratch CodeClub material which is CC BY-NC-ND (i.e. no derivatives, versus ShareAlike). Adrian can be convinced to relicense under CC BY-NC-CD if that's seen as important.
 
 To do
 ------
@@ -113,7 +114,6 @@ To do
 * Create Scratch-Python conversion guide. (Not just the blocks, but also sprites, sounds, variables and broadcasts. There's a [start at this here, but it's incomplete](docs/scratch-python-cheatsheet/README.md). Tim Morley has volunteered to format it nicely once we've got the information in place. We need to do the merge of Pete Lewin's ```codeclub.py``` module first - see below.
 * Work out the best way to check out a certain branch within PyCharm.
 * Think about whether PyCharm is truly the best IDE for the job. An open-source one would be better...
-* Decide if we are doing Python 2.7 or 3.x. Ade and Pete both assuming 2.7.
 * Merge in Peter Lewin's exercises which are [here](exercises/PyNotSureYet-Guess/README.md) and [here](exercises/PyNotSureYet-Felix_Tutorial/README.md).
   * Figure out where they go relative to the other exercises
   * Come up with a single ```codeclub.py``` library for use in all exercises which emulates Scratch sprites and does whatever else we need to hide from the kids for simplicity's sake.
