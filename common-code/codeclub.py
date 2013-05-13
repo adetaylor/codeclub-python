@@ -20,8 +20,8 @@ from math import sqrt, degrees, atan, cos, sin, radians
 #######################################################################################
 
 def load_image(name, colorkey=None):
-    main_dir = os.path.split(os.path.abspath(__file__))[0]
-    fullname = os.path.join(main_dir, 'data', name)
+	main_dir = os.path.split(os.path.abspath(__file__))[0]
+	fullname = os.path.join(main_dir, 'data', name)
 	try:
 		image = pygame.image.load(fullname)
 	except pygame.error, message:
@@ -35,14 +35,14 @@ def load_image(name, colorkey=None):
 	return image #, image.get_rect()
 
 def load_images(*files):
-    imgs = []
-    for file in files:
-        imgs.append(load_image(file))
-    return imgs
+	imgs = []
+	for file in files:
+		imgs.append(load_image(file))
+	return imgs
 
 def load_image_and_its_mirror_image(file, flipx, flipy):
-    img = load_image(file)
-    return [img, pygame.transform.flip(img, flipx, flipy)]
+	img = load_image(file)
+	return [img, pygame.transform.flip(img, flipx, flipy)]
 
 def load_sound(name):
 	class NoneSound:
@@ -58,10 +58,10 @@ def load_sound(name):
 	return sound
 
 def start_music(file):
-    if pygame.mixer:
-        music = os.path.join(main_dir, 'data', file)
-        pygame.mixer.music.load(music)
-        pygame.mixer.music.play(-1)
+	if pygame.mixer:
+		music = os.path.join(main_dir, 'data', file)
+		pygame.mixer.music.load(music)
+		pygame.mixer.music.play(-1)
 
 #######################################################################################
 # A sprite which knows how to do more stuff like a Scratch sprite
@@ -164,9 +164,9 @@ class CodeClubSprite(pygame.sprite.Sprite):
 	def adjust_image_based_on_direction(self):
 		pass
 
-class LeftRightFacingSprite(sprite):
+class CodeClubLeftRightFacingSprite(CodeClubSprite):
 	def __init__(self, x_pos = 100.0, y_pos = 100.0, speed = 4):
-		sprite.__init__(self)
+		CodeClubSprite.__init__(self)
 		self.facing_right = True
 
 	def adjust_image_based_on_direction(self):
@@ -178,9 +178,9 @@ class LeftRightFacingSprite(sprite):
 			self.facing_right = True
 			self.image = self.orig_image
 
-class FreeRotatingSprite(sprite):
+class CodeClubFreeRotatingSprite(CodeClubSprite):
 	def __init__(self, x_pos = 100.0, y_pos = 100.0, speed = 4):
-		sprite.__init__(self)
+		Sprite.__init__(self)
 
 	def adjust_image_based_on_direction(self):
 		self.image = pygame.transform.rotate(self.orig_image, self.direction)
