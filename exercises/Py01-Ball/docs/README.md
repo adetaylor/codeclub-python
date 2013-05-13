@@ -110,10 +110,10 @@ small_ball_image = pygame.transform.scale(ball_image, (50, 50))
 ```python
 class Ball(pygame.sprite.Sprite):
 
-    def __init__(self):
-        super(Ball, self).__init__() # ignore this line for now, it's complicated
-        self.image = small_ball_image
-        self.rect = self.image.get_rect(midbottom=screen_rect.midbottom)
+	def __init__(self):
+		super(Ball, self).__init__() # ignore this line for now, it's complicated
+		self.image = small_ball_image
+		self.rect = self.image.get_rect(midbottom=screen_rect.midbottom)
 ```
 
 * Here's a much simpler method.
@@ -122,9 +122,9 @@ class Ball(pygame.sprite.Sprite):
 
 ```python
 
-    def move(self, direction):
-        self.rect.move_ip(direction*5, 0)  # short for 'move in place'
-        self.rect = self.rect.clamp(screen_rect)
+	def move(self, direction):
+		self.rect.move_ip(direction*5, 0)  # short for 'move in place'
+		self.rect = self.rect.clamp(screen_rect)
 ```
 
 * Now we set up some more variables.
@@ -153,7 +153,6 @@ all.add(ball)
 ```python
 running = True
 
-
 while running:
 ```
 
@@ -162,16 +161,16 @@ while running:
 * Talk through the lines.
 
 ```python
-    for event in pygame.event.get():
-        if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
-            running = False
+	for event in pygame.event.get():
+		if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
+			running = False
 ```
 
 * We want to move the ball whenever left or right is pressed.
 * We set up a new variable containing the state of all the keys, which pygame tells us.
 
 ```python
-    keys_pressed = pygame.key.get_pressed()
+	keys_pressed = pygame.key.get_pressed()
 ```
 
 * `keys_pressed[name of key]` is 0 if the key is not pressed, or 1 if it is pressed
@@ -179,7 +178,7 @@ while running:
 * How could we do that?
 
 ```python
-    direction = keys_pressed[K_RIGHT] - keys_pressed[K_LEFT]
+	direction = keys_pressed[K_RIGHT] - keys_pressed[K_LEFT]
 ```
 
 * Finally we ask the ball to move. We call a method on it. This runs the code in the
@@ -187,16 +186,16 @@ while running:
 * We pass in the direction we want it to move.
 
 ```python
-    ball.move(direction)
+	ball.move(direction)
 ```
 
 * Finally we do some things to draw the ball on a blank background.
 
 ```python
-    all.clear(screen, background)
+	all.clear(screen, background)
 
-    dirty = all.draw(screen)
-    pygame.display.update(dirty)
+	dirty = all.draw(screen)
+	pygame.display.update(dirty)
 ```
 
 Challenge

@@ -1,7 +1,12 @@
 Py01: Ball
 ==========
 
-This exercise gives a very simple 'game' where you can move a ball around the screen.
+Introduction
+------------
+
+Now for something completely different! Welcome to Python! Python is complicated compared to Scratch but can do _much_ more. By the end of the term, you'll be doing network games and maybe many other things.
+
+This first exercise gives a very simple 'game' where you can move a ball around the screen.
 
 ![Screenshot](ball-game-screenshot.png)
 
