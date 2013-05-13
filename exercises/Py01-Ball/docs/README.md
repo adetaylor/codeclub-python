@@ -6,7 +6,7 @@ Py01-Ball
 The aim of this exercise is to talk the kids through some basic Python syntax,
 especially in relation to PyGame which is what subsequent exercises will use.
 
-It's really the absolute simplest thing I can come up with in Pygame.
+It's the simplest possible thing using PyGame.
 
 You should get them to type it up following along, whilst you explain
 everything.
@@ -208,5 +208,4 @@ TODO
 ----
 
 * Fix code-problem directory. It seems to contain the solution.
-* Possibly add another challenge.
 * Add another sprite (e.g. a goal, a football background) in the data directory so kids who want to push it further can have more possibilities.
