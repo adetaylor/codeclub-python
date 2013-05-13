@@ -10,9 +10,7 @@ This first exercise gives a very simple 'game' where you can move a ball around 
 
 ![Screenshot](ball-game-screenshot.png)
 
-For the first half of the exercise, you'll be copying out code to make the game work.
-
-For the second half, there's a challenge.
+For the first half of the exercise, copy the code presented to you. For the second half, there's a challenge.
 
 Part One: Writing the game
 --------------------------

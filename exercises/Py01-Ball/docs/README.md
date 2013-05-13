@@ -46,7 +46,7 @@ Perhaps tick each item off to make sure you don't miss some...
 
 ```python
 import pygame
-import codeclub_pygame_handy_functions
+import codeclub
 from pygame.locals import *
 ```
 
@@ -83,48 +83,36 @@ screen_rect = Rect(0, 0, 640, 480)
 screen = pygame.display.set_mode(screen_rect.size)
 ```
 
-* Now a variable containing a picture.
-
-```python
-ball_image = codeclub_pygame_handy_functions.load_image_from_data_directory('ball.png')
-```
-
-* And now let's shrink it! Look how we're passing in one image variable
-  and getting one back.
-
-```python
-small_ball_image = pygame.transform.scale(ball_image, (50, 50))
-```
-
 * Warn that this is the most complicated bit.
 * In Scratch there is just one of each sprite. In Python there are multiple
   instances of each sprite, so we call each type of sprite a "class".
 * Also, they're not necessarily created at the start of the game. They
   can be created or destroyed later.
-* Each script on a sprite is called a 'method' and starts with `def`.
-* The first method, `__init__` is special and runs when a new Ball is created.
-* Talk through the lines.
-* Say that `self` refers to the ball object itself. `self.image` means a variable
-  called `image` belonging to the ball object.
+* We're going to call our sprite `Ball` and say that it's a type of CodeClub
+  sprite. This second bit means it knows how to do lots of the typical
+  things which CodeClub sprites need to do.
 
 ```python
-class Ball(pygame.sprite.Sprite):
-
-	def __init__(self):
-		super(Ball, self).__init__() # ignore this line for now, it's complicated
-		self.image = small_ball_image
-		self.rect = self.image.get_rect(midbottom=screen_rect.midbottom)
+class Ball(codeclub.CodeClubSprite):
 ```
 
-* Here's a much simpler method.
-* This is what the ball does when we tell it to move.
-* Talk through the lines.
+* Each script on a class is called a 'method' and starts with `def`.
+* The first method, `__init__` is special and runs when a new Ball is created.
+* It stands for "initialise"
 
 ```python
+	def __init__(self):
+		super(Ball, self).__init__() # ignore this line, it's complicated.
+```
 
-	def move(self, direction):
-		self.rect.move_ip(direction*5, 0)  # short for 'move in place'
-		self.rect = self.rect.clamp(screen_rect)
+* When our `__init__` method is called, we want to ask ourselves to set a costume.
+* This is possible only because we've said we're a CodeClub sprites, and all
+  CodeClub sprites know how to do this.
+* We need to tell ourself just what sort of costume we need - the name of an image
+  file and how big we want to be.
+
+```python
+		self.set_costume('ball.png', 50)
 ```
 
 * Now we set up some more variables.
@@ -174,19 +162,16 @@ while running:
 ```
 
 * `keys_pressed[name of key]` is 0 if the key is not pressed, or 1 if it is pressed
-* We want direction to be -1 for left, 1 or right, or 0 otherwise.
-* How could we do that?
+* We tell our ball to point in a certain direction and move. Again, all CodeClubSprites
+  know how to do this - not just our Ball.
 
 ```python
-	direction = keys_pressed[K_RIGHT] - keys_pressed[K_LEFT]
-```
-
-* Finally we ask the ball to move. We call a method on it. This runs the code in the
-  `move` method which we typed in earlier.
-* We pass in the direction we want it to move.
-
-```python
-	ball.move(direction)
+	if keys_pressed[K_RIGHT]:
+		ball.point_in_direction(180)
+		ball.move(5)
+	if keys_pressed[K_LEFT]:
+		ball.point_in_direction(0)
+		ball.move(5)
 ```
 
 * Finally we do some things to draw the ball on a blank background.
@@ -207,5 +192,4 @@ they copy existing code.
 TODO
 ----
 
-* Fix code-problem directory. It seems to contain the solution.
 * Add another sprite (e.g. a goal, a football background) in the data directory so kids who want to push it further can have more possibilities.
