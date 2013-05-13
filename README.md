@@ -71,19 +71,15 @@ Evolution of the course of exercises
 
 * [Py01-Ball](exercises/Py01-Ball/docs/README.md):
 
-  The first exercise is for the kids to be talked through Python to pick up some basic syntax. There is a single challenge for them to do.
+  The first exercise is for the kids to be talked through Python to pick up some basic syntax. There is a single challenge for them to do, but really they're just typing what they're told.
 
 * [Py02-Alien](exercises/Py02-Alien/docs/README.md):
 
-  It's been proposed that the Python exercises start off by shadowing one or more of the Scratch exercises the kids will already have done.
-
-  I think that's a great idea but I don't personally have time, so I've made a stab at a first exercise or two by starting with one of the PyGame examples. At least this saves the step of writing and debugging a game.
-
-	The intention of this session is to get the kids used to looking through actual textual code, and identifying clues. If we can end the session with an idea that a 'class' relates to a sprite on the screen, we're doing well.
+  A big Python project can look daunting. The intention here is that the kids are faced with a big file of code, but all they have to do is look through it to spot clues. And they get a fun game to play. If we can end the session with an idea that a 'class' relates to a sprite on the screen, we're doing well.
 
 * [Py03-Guess](exercises/Py03-Guess/README.md):
 
-  This exercise has been produced by Peter Lewin and was initially intended to be a first exercise, i.e. similar in scope to Ball. I have ramped up the difficulty level so that it is the first one the kids will program entirely by themselves.
+  In this exercise (prepared by Pete Lewin) the kids write their first Python program from scratch (boom boom). It's a textual number guessing game.
 
 * [Py04-Felix](exercises/Py04-Felix/docs/README.md):
 
