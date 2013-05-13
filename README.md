@@ -49,23 +49,6 @@ The 'Desert Race' Scratch example was very popular because it was two-player, al
 
 That said, I also happen to have a Parrot AR.Drone which has a Python SDK so I haven't totally given up on the robotics angle :-)
 
-Setup
-------
-
-I've added some notes in [a separate document](setup/setup.md). But it's certainly much more complex than Scratch. We need:
-
-* Python and various libraries.
-* Network connectivity.
-* An IDE.
-
-The code is being kept on github which enables reasonably efficient easy checkouts.
-
-Why on earth are these using PyCharm, github, markdown etc.?
----------------------------------------
-Good questions and I'm not wedded to any of these decisions, but [I have documented my reasoning here](setup/rationale.md)
-
-There are some [highly provisional coding standards here](docs/code-guidelines.md).
-
 Exercises
 ---------------------------------------
 
@@ -97,6 +80,14 @@ Exercises
 
 Future developments could include a simple physics library but I think a term will be pretty full with all the above.
 
+Other resources
+------
+
+* Setup: I've added some notes in [a separate document](setup/setup.md). It's horrendous.
+* [Rationale for use of github/PyCharm/etc](setup/rationale.md)
+* There are some [highly provisional coding standards here](docs/code-guidelines.md).
+* [Central repository for the ```codeclub.py``` module which is used in many exercises](common-code/codeclub.py)
+
 License 
 -------
 
@@ -110,12 +101,12 @@ To do
 * Create Scratch-Python conversion guide. (Not just the blocks, but also sprites, sounds, variables and broadcasts. There's a [start at this here, but it's incomplete](docs/scratch-python-cheatsheet/README.md). Tim Morley has volunteered to format it nicely once we've got the information in place. We need to do the merge of Pete Lewin's ```codeclub.py``` module first - see below.
 * Work out the best way to check out a certain branch within PyCharm.
 * Think about whether PyCharm is truly the best IDE for the job. An open-source one would be better...
-* Merge in Peter Lewin's exercises which are [here](exercises/PyNotSureYet-Guess/README.md) and [here](exercises/PyNotSureYet-Felix_Tutorial/README.md).
+* Match styles between exercises.
   * Use Peter's nice ```codeclub.py``` in all the exercises.
   * Modify Pete's Felix exercise to include classes since Ade's prior exercises introduce the concept.
   * Modify Ade's exercises to use a ```main``` function since that seems to be best practice and Pete's exercises do it
   * In general make Peter and Ade's stuff more consistent.
-* Change all spaces to tabs.
+  * Change all spaces to tabs.
 * Test each exercise on a variety of hardware. Especially the networked one
 * Figure out a simple physics-based exercise??
 * See the 'TODO' items for each individual exercise.
