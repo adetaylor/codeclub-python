@@ -187,9 +187,14 @@ Challenge
 ---------
 
 This is all going to be very terrifying for them so it's something simple where
-they copy existing code.
+they copy existing code. Mostly.
 
 TODO
 ----
 
-* Add another sprite (e.g. a goal, a football background) in the data directory so kids who want to push it further can have more possibilities.
+Figure out a further challenge involving pitch.png.
+
+Acknowledgements
+---------
+
+`pitch.png` licensed under CC BY-SA by Xhandler from http://commons.wikimedia.org/wiki/File:Football_pitch_v2.svg.
