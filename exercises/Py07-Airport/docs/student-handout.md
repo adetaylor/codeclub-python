@@ -157,6 +157,8 @@ Week Three
 
 Last week, you added more planes and made them crash. In real life, this would be disappointing. We want to make you the air traffic controller to land the planes.
 
+![Third week screenshot](mid-screenshot.png)
+
 Stage 7 - Drawing routes for planes
 ---------------------
 
@@ -223,7 +225,6 @@ if len(self.course) > 0: # only do this stuff if a course has been set
 STILL TO DO
 ============
 
-* Add more screenshots to the above.
 * Geometry fixes so centre of planes aim towards fixes.
 * Landings and keeping score.
 * Network version:

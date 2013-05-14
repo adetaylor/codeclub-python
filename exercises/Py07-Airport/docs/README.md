@@ -4,4 +4,4 @@ Multi-week exercise culminating in a network game. Not yet finished, but about 6
 
 Inspired by Linda flying into Gatwick not Stansted. (But I went for a picture of Stansted instead).
 
-![Early screenshot](early-screenshot.png)
+![Screenshot](mid-screenshot.png)
