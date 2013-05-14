@@ -81,6 +81,7 @@ class CodeClubSprite(pygame.sprite.Sprite):
 		self.speak_pos = (0,0)
 		self.speak_font = pygame.font.Font(None, 36)
 		self.speak_text = self.speak_font.render("Hello!!!", 1, (10, 10, 10))
+		self.x_diff = self.y_diff = 0
 
 	def set_costume(self, name, size):
 		self.image = load_image(name, -1)
@@ -132,9 +133,14 @@ class CodeClubSprite(pygame.sprite.Sprite):
 		return self.rect.center
 		    
 	def move(self, distance = 1):
-		x_diff = -cos(radians(self.direction)) * distance
-		y_diff = -sin(radians(self.direction)) * distance
-		self.rect.center = (self.rect.center[0] + x_diff, self.rect.center[1] + y_diff)
+		# PyGame co-ordinates are integers yet we want to be able
+		# to move <1 unit, so we keep track of fractional movements
+		# to do next time.
+		self.x_diff -= cos(radians(self.direction)) * distance
+		self.y_diff -= sin(radians(self.direction)) * distance
+		self.rect.center = (self.rect.center[0] + int(self.x_diff), self.rect.center[1] + int(self.y_diff))
+		self.x_diff -= int(self.x_diff)
+		self.y_diff -= int(self.y_diff)
 	
 	def move_unless_frozen(self, distance):
 		"Moves in current direction"
