@@ -185,4 +185,4 @@ class CodeClubFreeRotatingSprite(CodeClubSprite):
 		CodeClubSprite.__init__(self)
 
 	def adjust_image_based_on_direction(self):
-		self.image = pygame.transform.rotate(self.orig_image, self.direction)
+		self.image = pygame.transform.rotate(self.orig_image, -self.direction)
