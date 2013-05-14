@@ -76,7 +76,7 @@ The plane is starting in the corner. Let's fix it to start _anywhere on any edge
 * Fill in two variables `x` and `y` to pick a random location along the edge. Hints:
   * You'll need to use `if edgenumber == 1:` and similar.
   * You'll need to use `X_MAX` and `Y_MAX`. If you're not sure what they are, look where the parameter to the `__init__` method comes from - when you create the `Plane` sprite in the main part of the script.
-  * To pick a random number between 0 and, say, `Y_MAX` then use `y = int(random.random() * Y_MAX)`
+  * To pick a random number between 0 and, say, `Y_MAX` then use `y = int(random.random() * Y_MAX)`. Wrapping it up in `int(...)` means that you get a 'whole' number such as 3 or 55, not a fractional number such as 3.7 or 55.234.
 * Move the plane to the right place using `self.move_to((x, y))`. We're using "self" because the script we're writing belongs to the plane - so the plane itself is telling itself to move.
 * Test the game. It should start at a random location on any edge of the screen. It will still always fly left, but we'll fix that left.
 
