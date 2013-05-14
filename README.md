@@ -1,6 +1,8 @@
 Python CodeClub experiments
 ============================
 
+![CodeClub logo](docs/codeclub-logo.png)
+
 This repository contains some experiments in producing a Python CodeClub curriculum
 using PyGame and, I hope eventually, networked games.
 
