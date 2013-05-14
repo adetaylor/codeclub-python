@@ -8,7 +8,7 @@ It should take about three weeks.
 Week One
 =========
 
-![First week screenshot](docs/early-screenshot.png)
+![First week screenshot](early-screenshot.png)
 
 This week we're going to make planes fly across the screen. In later weeks, we'll enable you to land the planes - and then make it into a network game.
 
