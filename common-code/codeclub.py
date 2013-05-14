@@ -70,13 +70,12 @@ def start_music(file):
 #######################################################################################
 
 class CodeClubSprite(pygame.sprite.Sprite):
-	def __init__(self, x_pos = 100.0, y_pos = 100.0, speed = 4):
+	def __init__(self, x_pos = 100.0, y_pos = 100.0):
 		pygame.sprite.Sprite.__init__(self) #call Sprite intializer
 		self.direction = 0;
 		screen = pygame.display.get_surface()
 		self.area = screen.get_rect()
 		self.rect = pygame.Rect(x_pos-5, y_pos-5, 10, 10)
-		self.speed = speed
 		self.freeze_time = 0
 		self.speak_time = 0
 		self.speak_pos = (0,0)
@@ -167,8 +166,8 @@ class CodeClubSprite(pygame.sprite.Sprite):
 		pass
 
 class CodeClubLeftRightFacingSprite(CodeClubSprite):
-	def __init__(self, x_pos = 100.0, y_pos = 100.0, speed = 4):
-		CodeClubSprite.__init__(self)
+	def __init__(self, x_pos = 100.0, y_pos = 100.0):
+		CodeClubSprite.__init__(self, x_pos, y_pos)
 		self.facing_right = True
 
 	def adjust_image_based_on_direction(self):
@@ -181,8 +180,8 @@ class CodeClubLeftRightFacingSprite(CodeClubSprite):
 			self.image = self.orig_image
 
 class CodeClubFreeRotatingSprite(CodeClubSprite):
-	def __init__(self, x_pos = 100.0, y_pos = 100.0, speed = 4):
-		CodeClubSprite.__init__(self)
+	def __init__(self, x_pos = 100.0, y_pos = 100.0):
+		CodeClubSprite.__init__(self, x_pos, y_pos)
 
 	def adjust_image_based_on_direction(self):
 		self.image = pygame.transform.rotate(self.orig_image, -self.direction)
