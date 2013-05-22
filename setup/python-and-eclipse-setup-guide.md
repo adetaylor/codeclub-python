@@ -1,5 +1,21 @@
-Provisional setup guide for Python assuming we use Eclipse
+Setup guide
 =================================
+
+General
+-------
+
+You need to install
+
+* Python 2.7
+* PyGame 1.9
+* Pyro 4
+* Eclipse
+  * Within Eclipse, egit and PyDev
+
+All of these things are available for Windows PCs, Macs, and also Linux (for example on Raspberry Pis). However, on Raspberry Pis they are _very slow indeed_!!
+
+Specific instructions for Windows installations
+--------------------
 
 Things to install if you're using Windows:
 
@@ -43,17 +59,17 @@ Things to install if you're using Windows:
    5. From the drop down list of update sites, select Juno
    6. Under the Team category, choose edit
 
-8. Automating all of this
+Automating all of this for school installations
+----------------------
 
-   I'm aware that this is ridiculously complicated. I believe that steps 1-5 put things in c:\Python27 and nowhere else. So, you should be able to do this on one machine then copy that folder to all the others. I haven't tested this, but I believe there are no registry entries involved or anything anywhere else on the PC.
+This is all rather complicated. I believe that steps 1-5 put things in c:\Python27 and nowhere else. So, you should be able to do this on one machine then copy that folder to all the others. I haven't tested this, but I believe there are no registry entries involved or anything anywhere else on the PC.
 
-   Also, steps 6 and 7 only put things in c:\eclipse and nowhere else. So again you should be able simply to copy that from machine to machine (and create a suitable start menu/desktop icon).
+Also, steps 6 and 7 only put things in c:\eclipse and nowhere else. So again you should be able simply to copy that from machine to machine (and create a suitable start menu/desktop icon).
 
-   You could even put both c:\Python27 and c:\eclipse into a single c:\CodeClub directory and copy it around.
+You could even put both c:\Python27 and c:\eclipse into a single c:\CodeClub directory and copy it around.
 
-9. Network access
-
-   Believe it or not, we also need access to a website which has the word "git" in its title, which currently doesn't work on the school network. If you haven't come across it, "git" is currently probably the most widely-used system for managing and distributing source code for programs. That's how we're going to distribute and store the source code for these Python exercises. Obviously the name is unfortunate when it comes to schools, but there we go.
+Network access
+--------------
 
    We need access to:
    https://github.com
