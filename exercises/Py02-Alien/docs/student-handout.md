@@ -13,22 +13,32 @@ Step 1: Get the code and run the game
 We're going to be working on an existing game, and making small changes to it. So first of all
 you need to get the game code from the Internet.
 
-1. Open PyCharm
-2. You should see a window asking you what you want to do:
-![PyCharm intro window](pycharm-intro-window.png)
-3. Select "Check out from version control". That just means to fetch some code from the Internet.
-4. Select "Git"
-![PyCharm git window](pycharm-git-window.png)
-5. It will ask you for "git repository URL". Enter, very exactly:
+This will seem complicated - that's because you're using the same tools as professional software developers who have put together all the apps and games that you use every day. You're not taking any shortcuts here.
+
+1. Open Eclipse
+2. Go to File - Import
+   ![Eclipse import](eclipse-import.png)
+3. Select "Git" / "Projects from Git". Click Next.
+4. Select "URI". Click Next.
+   ![Eclipse import by URI](eclipse-uri.png)
+5. It will ask you for "URI". Enter, very exactly:
 ```
 https://github.com/adetaylor/codeclub-python-alien.git
 ```
-6. Click Clone and then Yes.
-7. You should see a window like this:
-![PyCharm main window](pycharm-main-window.png)
-8. Click the little triangle beside `codeclub-python-alien`. Double click `aliens.py`.
-9. You should see the game code. It looks long and terrifying, but don't worry, we'll help you through it.
-10. To play the game choose Run - Run... and press return.
+   ![Eclipse repository location](eclipse-repo.png)
+   Click Next.
+6. Ignore the next screen - click Next again.
+   ![Eclipse branch selection](eclipse-branch-selection.png)
+7. *Important*: When you see a pop-up menu entitled "Initial branch", select "py02-problem-with-eclipse". Click Next, and keep clicking Next/Finish until the wizard disappears.
+   ![Eclipse initial branch selection](eclipse-initial-branch-selection.png)
+
+You now have the game code on your computer. Next, we'll look at the code and run the game.
+
+1. Click the little triangle beside `codeclub-python-alien`. Double click `aliens.py`.
+   ![Eclipse triangle thingy](eclipse-triangle.png)
+2. You should see the game code. It looks long and terrifying, but don't worry, we'll help you through it.
+3. To play the game, right-click on `aliens.py` and choose Run As - Python Run. You should see the game!
+   ![Eclipse Run As](eclipse-run-as.png)
  
 Step 2: Play the game and take some notes
 -----------------------------------------
