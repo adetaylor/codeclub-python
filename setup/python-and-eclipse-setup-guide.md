@@ -40,12 +40,12 @@ Things to install if you're using Windows:
 
    Within Eclipse you should do this:
    1. Choose Help
-   2. Choose Software Updates
+   2. Choose Software Updates (or 'Install new software')
    3. In the update site box, type http://pydev.org/updates
    4. Follow the wizard through until you have installed PyDev (you don't need the Mylyn integration)
    4. Do 1 and 2 again
    5. From the drop down list of update sites, select Juno
-   6. Under the Team category, choose edit
+   6. Under the Team category, choose egit
 
 For some of the later exercises we also need Pyro4. To install that, you first need to install distribute/pip.
 
