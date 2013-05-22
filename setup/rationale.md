@@ -1,17 +1,30 @@
 Rationale for setup decisions
 ===============================
 
-PyCharm
+Eclipse
 -------
 
-I know nothing much about Python IDEs. PyCharm was recommended and seems to be quite good.
+I **hate** that I've chosen to use eclipse.
 
-The school PCs I'm using are Atom netbooks with small screens. Eclipse is therefore probably out of the question.
+It's terribly slow and bloated. However, here's the rationale.
 
-PyCharm have free educational licenses but it seems some ID is required. I haven't got to the
-bottom of this yet.
+* To move kids from Scratch to Python we need some form of code-completion. So we need
+  a proper IDE. I firmly believe they'll struggle with just a text editor; or to be
+  specific it will greatly limit the sophistication of the projects we can do, and
+  thus turn the kids off Python. We need graphical games to keep their enthusiasm.
+* The only good IDEs seem to be PyCharm and Eclipse.
+* Both are Java and huge. Eclipse is admittedly somewhat worse.
+* PyCharm is theoretically free for use in schools but I have struggled to get a license
+  out of them for CodeClub purposes. (It would take official letters from the CodeClub
+  founders apparently). Eclipse is, of course, open-source.
+* At least Eclipse has an integral git implementation so there's no need to install
+  git separately. (Of course, that is only relevant if you accept my rationale for using
+  git below...)
 
-I am not completely happy with the choice of PyCharm. Any better ideas?
+However, on the other hand, eclipse may be entirely impractical on the slow school
+computers.
+
+I really wish there were a better option. Any ideas?
 
 github for storing source code
 --------------------------------

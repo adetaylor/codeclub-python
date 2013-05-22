@@ -4,11 +4,11 @@ Setup guide
 General
 -------
 
-You need to install
+You need to install:
 
 * Python 2.7
 * PyGame 1.9
-* Pyro 4
+* Pyro 4 (not needed for the first few exercises)
 * Eclipse
   * Within Eclipse, egit and PyDev
 
