@@ -28,19 +28,7 @@ Things to install if you're using Windows:
 
    From: http://pygame.org/ftp/pygame-1.9.1.win32-py2.7.msi
 
-3. Python 'distribute'
-
-   From: http://www.lfd.uci.edu/~gohlke/pythonlibs/#distribute - choose the version for win32 py2.7
-
-4. Python 'pip'
-
-   From: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip - again, the win32 py2.7 version
-
-5. Pyro4
-
-   After installing all of the above you should be able to type 'pip install Pyro4' to install one final Python library we need.
-
-6. Eclipse
+3. Eclipse
 
    From: http://download.eclipse.org/eclipse/downloads/drops4/R-4.2.2-201302041200/download.php?dropFile=eclipse-platform-4.2.2-win32.zip
 
@@ -48,7 +36,7 @@ Things to install if you're using Windows:
 
    You should create a start menu item (or desktop shortcut) for eclipse.exe within it.
 
-7. egit and PyDev
+4. egit and PyDev
 
    Within Eclipse you should do this:
    1. Choose Help
@@ -58,6 +46,22 @@ Things to install if you're using Windows:
    4. Do 1 and 2 again
    5. From the drop down list of update sites, select Juno
    6. Under the Team category, choose edit
+
+For some of the later exercises we also need Pyro4. To install that, you first need to install distribute/pip.
+
+*Do not do these bits unless you're doing the Chat Room or Airport exercises.* It's too painful.
+
+1. Python 'distribute'
+
+   From: http://www.lfd.uci.edu/~gohlke/pythonlibs/#distribute - choose the version for win32 py2.7
+
+2. Python 'pip'
+
+   From: http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip - again, the win32 py2.7 version
+
+3. Pyro4
+
+   After installing all of the above you should be able to type 'pip install Pyro4' to install one final Python library we need.
 
 Automating all of this for school installations
 ----------------------
