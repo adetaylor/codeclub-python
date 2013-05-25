@@ -85,8 +85,8 @@ Future developments could include a simple physics library but I think a term wi
 Other resources
 ------
 
-* Setup: I've added some notes in [a separate document](setup/setup.md). It's horrendous.
-* [Rationale for use of github/PyCharm/etc](setup/rationale.md)
+* Setup: I've added some notes in [a separate document](docs/setup.md). It's horrendous.
+* [Rationale for use of github/PyCharm/etc](docs/rationale.md)
 * There are some [highly provisional coding standards here](docs/code-guidelines.md).
 * [Central repository for the ```codeclub.py``` module which is used in many exercises](common-code/codeclub.py)
 
