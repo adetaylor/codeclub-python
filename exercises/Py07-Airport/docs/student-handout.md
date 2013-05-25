@@ -225,7 +225,6 @@ if len(self.course) > 0: # only do this stuff if a course has been set
 STILL TO DO
 ============
 
-* Geometry fixes so centre of planes aim towards fixes.
 * Landings and keeping score.
 * Network version:
   * Different coloured planes for different users.

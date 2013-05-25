@@ -102,8 +102,8 @@ class CodeClubSprite(pygame.sprite.Sprite):
 		self.adjust_image_based_on_direction()
 
 	def point_towards(self, target):
-		x_diff = target.rect.left - self.rect.left
-		y_diff = target.rect.top - self.rect.top
+		x_diff = target.rect.center[0] - self.rect.center[0]
+		y_diff = target.rect.center[1] - self.rect.center[1]
         
 		if (x_diff == 0):
 			if (y_diff <= 0):
