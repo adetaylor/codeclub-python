@@ -230,9 +230,7 @@ if len(self.course) > 0: # only do this stuff if a course has been set
 Stage 8
 -------
 
-First, make a runway appear using `runway.png`:
-
-![Runway image](../code-problem/data/runway.png)
+First, make a runway appear using `runway.png`.
 
 * You should make a new sprite class called `Runway` then make exactly one of them exist. Don't forget:
   * To make a new class
@@ -259,6 +257,8 @@ if pygame.sprite.collide_mask(planea, runway):
 ```
 
 Play the game. Did you put the code in the right place? What score can you get?
+
+*Optional challenge:* It's kind of cheating to be able to fly the plane into the runway at any angle. Generally speaking, that results in hurty passengers. Use `planea.get_direction()` to ensure that planes can only land if they're approaching from the ends of the runway.
 
 STILL TO DO
 ============
