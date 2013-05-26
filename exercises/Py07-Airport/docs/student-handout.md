@@ -222,10 +222,48 @@ if len(self.course) > 0: # only do this stuff if a course has been set
 
 * Test your game. You should see planes following the course you set.
 
+* What happens if you draw a route for a plane, then change your mind and draw another route? What do you think should happen - should the plane finish following the old route and then switch to the new one, or should its old route be replaced with the new one? If the game isn't doing what you want, fix it.
+  * Hint: you can say `self.course = []` at any time.
+  * Hint: you may also want to `.kill()` each of the fixes already in `self.course` - for example `for oldfix in self.course:`
+  * Hint: you might want to do both those things in a new method belonging to the `Plane`.
+
+Stage 8
+-------
+
+First, make a runway appear using `runway.png`:
+
+![Runway image](../code-problem/data/runway.png)
+
+* You should make a new sprite class called `Runway` then make exactly one of them exist. Don't forget:
+  * To make a new class
+  * The class should be a kind of `CodeClubFreeRotatingSprite`
+  * To set the costume
+  * You should use `self.move_to((somewhere, somewhere))` and `self.point_in_direction(something)` to make sure the runway appears in the right place.
+  * Create a `pygame.sprite.Group` for this runway (and any others we might add in future).
+  * Create a runway within the main part of the game and add it to the group.
+  * Draw the runway.
+
+Test it. You'll probably need to fiddle with the costume size, x and y location, and rotation, to get it in exactly the right place.
+
+Do the planes fly over the runway or under it? If they fly under it, fix the order of your `.draw` calls...
+
+Now we need to make the planes land, and keep score.
+
+Create a new variable, `score` and set it to 0. Then add this code in the right place:
+
+```python
+if pygame.sprite.collide_mask(planea, runway):
+	planea.kill()
+	score = score + 1
+	print "Score ", score
+```
+
+Play the game. Did you put the code in the right place? What score can you get?
+
 STILL TO DO
 ============
 
-* Landings and keeping score.
+* Report score more nicely instead of just printing it.
 * Network version:
   * Different coloured planes for different users.
   * Creating Pyro4 daemon to keep track of all plane positions and scores.
