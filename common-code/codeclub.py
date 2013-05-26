@@ -65,6 +65,33 @@ def start_music(file):
 		pygame.mixer.music.load(music)
 		pygame.mixer.music.play(-1)
 
+def aspect_scale(img,(bx,by)):
+	""" Scales 'img' to fit into box bx/by.
+	This method will retain the original image's aspect ratio """
+	# Thanks to Frank Raiser (crashchaos at gmx.net)
+	ix,iy = img.get_size()
+	if ix > iy:
+		# fit to width
+		scale_factor = bx/float(ix)
+		sy = scale_factor * iy
+		if sy > by:
+			scale_factor = by/float(iy)
+			sx = scale_factor * ix
+			sy = by
+		else:
+			sx = bx
+	else:
+		# fit to height
+		scale_factor = by/float(iy)
+		sx = scale_factor * ix
+		if sx > bx:
+			scale_factor = bx/float(ix)
+			sx = bx
+			sy = scale_factor * iy
+		else:
+			sy = by
+	return pygame.transform.smoothscale(img, (int(sx),int(sy)))
+
 #######################################################################################
 # A sprite which knows how to do more stuff like a Scratch sprite
 #######################################################################################
@@ -86,7 +113,7 @@ class CodeClubSprite(pygame.sprite.Sprite):
 	def set_costume(self, name, size):
 		self.image = load_image(name, -1)
 		self.rect = self.image.get_rect()
-		self.image = self.orig_image = pygame.transform.scale(self.image, (size, size))
+		self.image = self.orig_image = aspect_scale(self.image, (size, size))
 		self.rect.width = self.rect.height = size
 
 	def turn_right(self, degrees = 10):
@@ -131,7 +158,10 @@ class CodeClubSprite(pygame.sprite.Sprite):
 
 	def get_position(self):
 		return self.rect.center
-		    
+
+	def get_direction(self):
+		return self.direction
+
 	def move(self, distance = 1):
 		# PyGame co-ordinates are integers yet we want to be able
 		# to move <1 unit, so we keep track of fractional movements
