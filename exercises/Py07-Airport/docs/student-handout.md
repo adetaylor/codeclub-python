@@ -16,7 +16,7 @@ Stage 1 - a blank airport
 -----------------
 
 * Fetch the code from `git@github.com:adetaylor/codeclub-python-airport.git` branch `airport-problem`. Your guide should be able to show you how to do this, if you haven't done so in previous exercises.
-* Create a new Python file called `airport.py`.
+* Create a new Python file called `air_traffic_controller.py`.
 * In this class, create a class of sprites entitled `Plane`. This should be a type of `CodeClubFreeRotatingSprite`, and its `__init__` method needs to take an additional parameter called `screensize`:
 
 ```python
@@ -310,7 +310,7 @@ class Message:
                 return self.username
 ```
 
-Now, back in `airport.py` add this code at the top:
+Now, back in `air_traffic_controller.py` add this code at the top:
 
 ```python
 import codeclub_network_client
@@ -349,7 +349,6 @@ The next step is to show each others' planes.
 STILL TO DO
 ============
 
-* Rename airport.py into air_traffic_controller.py
 * Report score more nicely instead of just printing it.
 * Network version:
   * Different coloured planes for different users.
