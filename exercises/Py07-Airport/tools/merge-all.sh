@@ -15,3 +15,4 @@ do_merge 4 5
 do_merge 5 6
 do_merge 6 7
 do_merge 7 8
+do_merge 8 9

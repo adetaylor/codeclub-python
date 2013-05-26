@@ -260,11 +260,99 @@ Play the game. Did you put the code in the right place? What score can you get?
 
 *Optional challenge:* It's kind of cheating to be able to fly the plane into the runway at any angle. Generally speaking, that results in hurty passengers. Use `planea.get_direction()` to ensure that planes can only land if they're approaching from the ends of the runway.
 
+Stage 9
+-------
+
+Now we turn this into a network game which means you can play against your friends on different computers.
+
+Create a new file, called `control-tower.py`. Add this code:
+
+```python
+import Pyro4
+
+class ControlTower:
+        def __init__(self):
+                self.participants = []
+
+        def add_participant(self, participant):
+                self.participants.append(Pyro4.Proxy(participant))
+
+        def say(self, message_text):
+                for p in self.participants:
+                        p.heard(message_text)
+
+control_tower = ControlTower()
+
+daemon = Pyro4.Daemon(host=Pyro4.socketutil.getInterfaceAddress("www.google.com"))
+ns = Pyro4.locateNS()
+uri = daemon.register(control_tower)
+ns.register("example.control_tower", uri)
+print "Control tower available and ready for connections!\n"
+daemon.requestLoop()
+```
+
+(If you did the 'Chat Room' exercise, you'll notice this is exactly the same except 'Room' has been turned into 'Control Tower' in places).
+
+This ControlTower will run once on the network. Start it running somewhere.
+
+Also add this into a file called `message.py`. This is also *exactly* the same as from the 'Chat Room' exercise, so you can simply copy it if you wish.
+
+```python
+class Message:
+        def __init__(self, message_text, username):
+                self.message_text = message_text
+                self.username = username
+
+        def get_message_text(self):
+                return self.message_text
+
+        def get_username(self):
+                return self.username
+```
+
+Now, back in `airport.py` add this code at the top:
+
+```python
+import codeclub_network_client
+
+class Controller:
+        def __init__(self, room):
+                self.room = room
+
+        def say(self, message):
+                self.room.say(message)
+
+        def heard(self, message):
+                if not message.get_username() == username:
+                        print message.get_username() + ": " + message.get_message_text() + "\n"
+
+network_client = codeclub_network_client.CodeClubNetworkClient()
+control_tower = network_client.connect_to_object_on_network("example.control_tower")
+me=Controller(control_tower)
+uri = network_client.make_local_object_available_on_network(me)
+control_tower.add_participant(uri)
+```
+
+Finally, where you print the score, add this code as well:
+
+```python
+message = Message("Score: %d" % (score), username)
+me.say(message)
+```
+
+Now, two of you run the game on the network. You should see each others' scores reported on your screen.
+
+The next step is to show each others' planes.
+
+
+
 STILL TO DO
 ============
 
+* Rename airport.py into air_traffic_controller.py
 * Report score more nicely instead of just printing it.
 * Network version:
   * Different coloured planes for different users.
   * Creating Pyro4 daemon to keep track of all plane positions and scores.
   * Periodically reporting everyone's scores.
+* Retrofit the `codeclub_network_client.py` code into the Chatroom exercise.
