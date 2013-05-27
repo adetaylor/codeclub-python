@@ -258,6 +258,8 @@ if pygame.sprite.collide_mask(planea, runway):
 
 Play the game. Did you put the code in the right place? What score can you get?
 
+Can you spot any bugs? What happens to the remaining fixes when the plane lands on the runway? Fix it - you might be able to re-use the code you added in Stage 7 for when you draw a new route.
+
 *Optional challenge:* It's kind of cheating to be able to fly the plane into the runway at any angle. Generally speaking, that results in hurty passengers. Use `planea.get_direction()` to ensure that planes can only land if they're approaching from the ends of the runway.
 
 Stage 9
@@ -268,14 +270,15 @@ Now we turn this into a network game which means you can play against your frien
 Create a new file, called `control-tower.py`. Add this code:
 
 ```python
+import codeclub_network_server
 import Pyro4
 
 class ControlTower:
         def __init__(self):
                 self.participants = []
 
-        def add_participant(self, participant):
-                self.participants.append(Pyro4.Proxy(participant))
+        def add_participant(self, participant_uri):
+                self.participants.append(Pyro4.Proxy(participant_uri))
 
         def say(self, message_text):
                 for p in self.participants:
@@ -283,17 +286,23 @@ class ControlTower:
 
 control_tower = ControlTower()
 
-daemon = Pyro4.Daemon(host=Pyro4.socketutil.getInterfaceAddress("www.google.com"))
-ns = Pyro4.locateNS()
-uri = daemon.register(control_tower)
-ns.register("example.control_tower", uri)
+network_server = codeclub_network_server.CodeClubNetworkServer()
+network_server.make_local_object_available_on_network("example.control_tower", control_tower)
 print "Control tower available and ready for connections!\n"
-daemon.requestLoop()
+network_server.handle_requests_forever()
 ```
 
 (If you did the 'Chat Room' exercise, you'll notice this is exactly the same except 'Room' has been turned into 'Control Tower' in places).
 
-This ControlTower will run once on the network. Start it running somewhere.
+---
+
+**SIDEBAR: "Client" and "server"**: Have you heard the term 'server' in computers? For example, web server, file server? A 'server' is just a program which continuously listens for requests across a network and deals with them. That's what you've just written. A program which connects to a server and gives it those requests is called a 'client' - we're going to turn `air_traffic_controller.py` into a server.
+
+They're called 'servers' because that's what 'waiters' and 'waitresses' are called in the USA.
+
+---
+
+This ControlTower will run once on the network. Start it running somewhere. Somebody, somewhere on the network will also need to run `python -m Pyro4.naming` - ask your guide for advice about who does this, because it's important that only one person runs it on the network.
 
 Also add this into a file called `message.py`. This is also *exactly* the same as from the 'Chat Room' exercise, so you can simply copy it if you wish.
 
