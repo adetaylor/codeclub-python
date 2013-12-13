@@ -1,30 +1,19 @@
 Rationale for setup decisions
 ===============================
 
-Eclipse
+Sublime
 -------
 
-I **hate** that I've chosen to use eclipse.
-
-It's terribly slow and bloated. However, here's the rationale.
+The choices of Python IDE are all terrible. Sublime is least bad.
 
 * To move kids from Scratch to Python we need some form of code-completion. So we need
   a proper IDE. I firmly believe they'll struggle with just a text editor; or to be
   specific it will greatly limit the sophistication of the projects we can do, and
   thus turn the kids off Python. We need graphical games to keep their enthusiasm.
-* The only good IDEs seem to be PyCharm and Eclipse.
-* Both are Java and huge. Eclipse is admittedly somewhat worse.
 * PyCharm is theoretically free for use in schools but I have struggled to get a license
   out of them for CodeClub purposes. (It would take official letters from the CodeClub
   founders apparently). Eclipse is, of course, open-source.
-* At least Eclipse has an integral git implementation so there's no need to install
-  git separately. (Of course, that is only relevant if you accept my rationale for using
-  git below...)
-
-However, on the other hand, eclipse may be entirely impractical on the slow school
-computers.
-
-I really wish there were a better option. Any ideas?
+* Eclipse is massive and bloated and doesn't work on the Atom-based netbooks at my school.
 
 github for storing source code
 --------------------------------

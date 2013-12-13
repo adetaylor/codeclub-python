@@ -6,6 +6,10 @@ Python CodeClub experiments
 This repository contains some experiments in producing a Python CodeClub curriculum
 using PyGame and, I hope eventually, networked games.
 
+This was originally developed in parallel to the IDLE-based curriculum that actually became
+CodeClub term 4. Sad times. However, these may still be useful as an 'advanced Python'
+term.
+
 Checking this out and modifying it
 -------------------
 
@@ -24,13 +28,6 @@ However there is one thorn in the side: the code for the exercises uses somethin
 * When you do a fork, you will just be forking the main repository not the code for the exercises. You can fork them too of course - please do - but you'll have to click the Fork button separately, and you'll need to do ```git remote add my-fork some-github-url-here``` to point your local copy to your new github repository then ```git push my-fork master```.
 
 All of those concerns only apply to the submodules containing the exercise _code_, not their documentation nor the central docs.
-
-Motivation: why Python?
----------
-
-Actually, none. Scratch is great and just right for kids of this age. However, existing CodeClub wisdom seems to be that two terms of Scratch is enough, and we should move to more 'advanced' languages.
-
-There's a third term of HTML but after that we should probably go back to real imperative programming, and Python is the choice.
 
 Will the kids want to do Python?
 ------------------------
@@ -101,8 +98,6 @@ To do
 (Non-exhaustive!)
 
 * Create Scratch-Python conversion guide. (Not just the blocks, but also sprites, sounds, variables and broadcasts. There's a [start at this here, but it's incomplete](docs/scratch-python-cheatsheet/README.md). Tim Morley has volunteered to format it nicely once we've got the information in place. We need to do the merge of Pete Lewin's ```codeclub.py``` module first - see below.
-* Work out the best way to check out a certain branch within PyCharm.
-* Think about whether PyCharm is truly the best IDE for the job. An open-source one would be better...
 * Match styles between exercises.
   * Use Peter's nice ```codeclub.py``` in all the exercises.
   * Modify Pete's Felix exercise to include classes since Ade's prior exercises introduce the concept.
@@ -119,7 +114,6 @@ To do
   * They don't even mention Pyro yet
   * There are too many things to install
   * There might be dependencies on git and ssh that I haven't figured out
-  * Some of this could be avoided if we switched to Eclipse/PyDev which has a pure-Java git plugin, but it just appears to be plain rubbish. See IDE TODO item above.
 
 Possible future projects
 ---------------
