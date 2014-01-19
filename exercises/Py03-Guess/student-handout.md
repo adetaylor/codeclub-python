@@ -45,15 +45,19 @@ print 'I'm a happy bunny.'     # This won't work
 print 'I\'m a happy bunny.'    # This will work, and won't print the \
 ```
 
+(don't add that bit to your program!)
+
 Also, you can put ```\n``` in the words to start a new line:
 
 ```python
 print 'First line \nsecond line'
 ```
 
-Test your code! how to do this will depend on your computer, but it may be typing ```python youguess.py``` in a command window.
+(don't add that bit to your program either!)
 
-If you see the words being printed out, *CONGRATULATIONS* - you have written a working Python program from scratch!  Try changing the words, and put some new lines in to make the output look nicer.
+Test your code! Choose Tools -> Build within Sublime Text. (If you're not using Sublime Text, your teacher will tell you what to do, but it may involve typing ```python youguess.py```.
+
+If you see the words being printed out starting 'Hello', then *CONGRATULATIONS* - you have written a working Python program!  Try changing the words, and put some new lines in to make the output look nicer.
 
 Step 2 - Variables
 ------------------
@@ -81,16 +85,33 @@ Put these statements into your code and run it.  Does it work?
 The game won't be very good if the computer always thinks of the number 42 though! We need to make it think of a different number each time, which we can do by creating a "random" number. Scratch knows how to make random numbers - but Python itself doesn't. Instead we must call upon the help of a "module" - a lump of code which will help us. First off we "import" the module like this:
 
 ```python
-import random
+import random # Put this line at the top of the script just before the first line saying 'print'. You don't need to type this comment. Still typing? Oh, man.
 ```
 
-Now we can use a function in the random module to choose our number. Change the line creating the "correct" variable to:
+Now we can use a function in the random module to choose our number. Change the line starting with ```correct``` to:
 
 ```python
 correct = random.randint(1,100)     # Choose a random number between 1 and 1000
 ```
     
 Test you code!  Do you get a different number every time?
+
+Your code should look like this altogether:
+
+```python
+#!/usr/bin/env python
+
+# First print out a message to say hello
+import random
+print 'Hello.  I hope you are well today.'
+print 'I am thinking of a whole number, between 1 and 100 inclusive'
+print 'I will give you 8 goes at guessing it, and tell you whether it is higher or lower than your guess'
+print '(I am feeling generous, you should only need 7 goes)'
+
+correct = random.randint(1,100)
+
+print 'Don\'t tell anybody, but I\'m thinking of the number ', correct
+```
 
 Step 3 - you get 8 chances
 --------------------------

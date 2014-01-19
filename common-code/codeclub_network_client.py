@@ -21,3 +21,11 @@ class CodeClubNetworkClient:
 		self.t.daemon = True
 		self.t.start()
 		return uri
+
+	def handle_network_requests(self):
+		socks=daemon.getServerSockets()
+		ins,outs,exs=select.select(socks,[],[],2)
+		for s in socks:
+			if s in ins:
+				daemon.handleRequests()
+				break
