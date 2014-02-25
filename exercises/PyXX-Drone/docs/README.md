@@ -1,7 +1,7 @@
 PyXX-Drone
 ==========
 
-This is not a formal exercise unlike [the others in this half-finished Advanced Python CodeClub curriculum](../../README.md). It's a report on an experimental exercise done in one school. More like a blog post...
+This is not a formal exercise unlike [the others in this half-finished Advanced Python CodeClub curriculum](../../../README.md). It's a report on an experimental exercise done in one school. More like a blog post...
 
 Fulbourn Primary School, just east of Cambridge, has been working through the excellent CodeClub Scratch curriculum with several sets of kids for about three terms now - but for the last session before Christmas, we decided to introduce Python - in an unusual way!
 
