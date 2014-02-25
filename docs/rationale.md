@@ -15,6 +15,9 @@ The choices of Python IDE are all terrible. Sublime is least bad.
   founders apparently). Eclipse is, of course, open-source.
 * Eclipse is massive and bloated and doesn't work on the Atom-based netbooks at my school.
 
+Sublime has poor code completion, and sadly no built-in git support, but otherwise
+works really well. It's colourful and lightweight.
+
 github for storing source code
 --------------------------------
 

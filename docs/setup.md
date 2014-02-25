@@ -12,7 +12,7 @@ You need to install several things:
 * [PyGame 1.9.1](http://www.pygame.org/download.shtml) - specifically use [this version](http://pygame.org/ftp/pygame-1.9.1.win32-py2.7.msi) if you're on Windows, with 32-bit Python 2.7 as suggested above
 * [Pyro4](http://pythonhosted.org/Pyro4/install.html#obtaining-and-installing-pyro) - to install this, I first had to install [the unofficial Windows version of distribute](http://www.lfd.uci.edu/~gohlke/pythonlibs/#distribute) and [of pip](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip) then just ```pip install Pyro4```.
 * Later there may be a physics library.
-* [Sublime Text 2](http://www.sublimetext.com/2) - see [the explanation of why this was chosen](rationale.md).
+* [Sublime Text 3](http://www.sublimetext.com/3) - see [the explanation of why this was chosen](rationale.md).
 
 Check that you can access http://www.github.com _and_ https://www.github.com/
 
