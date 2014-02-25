@@ -10,35 +10,24 @@ This game is a classic Space Invaders-style game where you shoot aliens who try 
 Step 1: Get the code and run the game
 -------------------------------------
 
-We're going to be working on an existing game, and making small changes to it. So first of all
+We're going to work on an existing game, and make small changes to it. So first of all
 you need to get the game code from the Internet.
 
 This will seem complicated - that's because you're using the same tools as professional software developers who have put together all the apps and games that you use every day. You're not taking any shortcuts here.
 
-1. Open Eclipse
-2. Go to File - Import
-   ![Eclipse import](eclipse-import.png)
-3. Select "Git" / "Projects from Git". Click Next.
-4. Select "URI". Click Next.
-   ![Eclipse import by URI](eclipse-uri.png)
-5. It will ask you for "URI". Enter, very exactly:
-```
-https://github.com/adetaylor/codeclub-python-alien.git
-```
-   ![Eclipse repository location](eclipse-repo.png)
-   Click Next.
-6. Ignore the next screen - click Next again.
-   ![Eclipse branch selection](eclipse-branch-selection.png)
-7. *Important*: When you see a pop-up menu entitled "Initial branch", select "py02-problem-with-eclipse". Click Next, and keep clicking Next/Finish until the wizard disappears.
-   ![Eclipse initial branch selection](eclipse-initial-branch-selection.png)
+1. Open a Command Prompt (your guide will show you how)
+2. Move to the location where you want to keep the code (again, your guide will show you how)
+3. Type `git clone -b py02-problem https://github.com/adetaylor/codeclub-python-alien.git` and press return.
+4. This will create a folder entitled `codeclub-python-alien`
+5. In Sublime Text, Open that folder.
 
 You now have the game code on your computer. Next, we'll look at the code and run the game.
 
-1. Click the little triangle beside `codeclub-python-alien`. Double click `aliens.py`.
-   ![Eclipse triangle thingy](eclipse-triangle.png)
+1. Double-click `aliens.py`
 2. You should see the game code. It looks long and terrifying, but don't worry, we'll help you through it.
-3. To play the game, right-click on `aliens.py` and choose Run As - Python Run. You should see the game!
-   ![Eclipse Run As](eclipse-run-as.png)
+   ![Sublime text general view](sublime-general-view.png)
+3. To play the game, go to the `Tools` menu and select `Build`.
+   ![Sublime text menu item](sublime-build.png)
  
 Step 2: Play the game and take some notes
 -----------------------------------------
