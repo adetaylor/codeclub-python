@@ -79,6 +79,12 @@ Exercises
 
 Future developments could include a simple physics library but I think a term will be pretty full with all the above.
 
+And finally...
+
+* [PyXX-Drone](exercises/PyXX-Drone/docs/README.md):
+
+  An 'exercise' (more like a blog post) of flying a real robot drone around a school room and live-editing its control code on a projector. Eek.
+
 Other resources
 ------
 
