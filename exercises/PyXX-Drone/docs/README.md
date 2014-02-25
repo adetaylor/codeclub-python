@@ -52,9 +52,11 @@ Eventually - it flew to the kids and then stopped, and started turning. From the
 And you know what? We got it working, as a team. By the end of the hour, it took off, flew to the other end of the room, turned around, flew back and landed! There was much whooping, high-fives all round, and an audience of teachers and cleaners watching to see what all the noise was about. It was awesome.
 
 ![Screenshot of code and image](ARDroneScreenImageAndCode.png)
+
 This term - we’ve gone back to Scratch, on the whole. But a few of the kids are working on some Python exercises. And, most importantly, they all want to. They’ve seen what it can do!
 
 Some notes for anyone else wanting to do the same:
+-------
 
 1. I warned the kids in advance that some of them Might Die, or at the very least be horribly maimed. Of course, it’s a safe CE-certified gadget, but scaring the pants off them got them excited and got them to treat a £300 robot with a bit of respect! It didn’t get broken.
 2. The teachers were delighted. Their support was important - many schools might have forbidden something like this for health and safety reasons.
