@@ -15,7 +15,7 @@ Things to point out:
 * In Scratch, there's a single instance of each Sprite. In Python, there are 'classes' of sprites, and there may be several of each.
 * Later we might come across classes of objects which are not actually visible on the screen, but not in this exercise
 * Lots of the code will not be explained this time. Boilerplate. Explain why not.
-** If you're feeling brave, you can explain the concept of a 'library' at this time.
+  * If you're feeling brave, you can explain the concept of a 'library' at this time.
 
 Practical things:
 
