@@ -16,9 +16,14 @@ Or at least, some of it.
 
 Setup:
 
-* You should start with a version of ball.py with lots of carriage returns
+* *You* should start with a version of ball.py with lots of carriage returns
   everywhere that you can then delete, to reveal a bit of the program
   a bit at a time.
+* The students should start with a blank editor, viewing the (neearly empty)
+  `ball.py` so that the editor (e.g. Sublime text) knows it's Python and does
+  suitable syntax highlighting etc.
+* The directory in which they're editing `ball.py` *must* have the `data`
+  and `codeclub.py` entries.
 
 Before starting you should set expectations:
 
@@ -78,6 +83,8 @@ screen_rect = Rect(0, 0, 640, 480)
   * It sends some information back
 * But we don't send this just to pygame. We send it to the `display` variable which belongs to
   pygame.
+* Note that the students may be able to use return-completion here to automatically
+  type things like `pygame` and `screen_rect`
 
 ```python
 screen = pygame.display.set_mode(screen_rect.size)
