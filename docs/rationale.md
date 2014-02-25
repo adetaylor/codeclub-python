@@ -54,3 +54,9 @@ can automatically show nicely formatted Python code.
 
 On the other hand it's proving to be an almighty pain for constructing the Scratch-Python cheatsheet,
 and it's hopeless for pretty formatting along the lines of the Scratch CodeClub exercises.
+
+Python 2.7 not 3.0
+------------------
+
+No particular justification. As someone said, "it's the path of least resistance".
+
