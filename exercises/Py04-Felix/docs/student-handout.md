@@ -70,7 +70,7 @@ Firstly we need to create a mouse sprite, set it's costume and size, and make it
 To create Herbert, in the section marked ```#Prepare game objects```, add the code:
 
 ```python
-    herbert = codeclub.sprite()
+    herbert = codeclub.CodeClubSprite()
     herbert.set_costume('mouse1.png', 60)
     allsprites = pygame.sprite.Group(herbert)
 ```
@@ -107,7 +107,7 @@ Now we need to create Felix and get him to chase herbert.
 To create Felix, in the section marked ```#Prepare game objects```, add the code:
 
 ```python
-    felix = codeclub.sprite()
+    felix = codeclub.CodeClubSprite()
     felix.set_costume('cat1-a.gif', 100)
     allsprites = pygame.sprite.Group((herbert, felix))
 ```
