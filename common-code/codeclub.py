@@ -113,7 +113,7 @@ class CodeClubSprite(pygame.sprite.Sprite):
 	def set_costume(self, name, size):
 		self.image = load_image(name, -1)
 		self.rect = self.image.get_rect()
-		self.image = self.orig_image = aspect_scale(self.image, (size, size))
+		self.image = self.orig_image = aspect_scale(self.image, size, size)
 		self.rect.width = self.rect.height = size
 
 	def turn_right(self, degrees = 10):
