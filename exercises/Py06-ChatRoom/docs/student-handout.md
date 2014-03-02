@@ -40,7 +40,7 @@ Step 1: Create classes for the chat room, messages, and participants
 		   self.room.say(message)
 	   
 	   def heard(self, message):
-		   print message.get_message_text() + "\n"
+		   print(message.get_message_text() + "\n")
    ```
 
    What happens when a participant `say`s something? What happens to the message? Does it end up within `heard`? How?
@@ -158,7 +158,7 @@ We want the *room* to be on one computer, and each *participant* to be on differ
    t.start()
    
    while True:
-	   text = raw_input().strip()
+	   text = input().strip()
 	   message = Message(text)
 	   me.say(message)
    ```

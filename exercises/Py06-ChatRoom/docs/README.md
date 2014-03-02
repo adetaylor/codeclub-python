@@ -10,6 +10,14 @@ Goals:
 * Show that there's more to programming than just games (but non-game stuff can be fun too...)
 
 
+Important - task for class leader
+---------------------------------
+
+Somewhere on the network there must be precisely *one* nameserver, which must be started using:
+
+  python -m Pyro4.naming
+
+
 Still to do before kids get near this!
 ------------
 
