@@ -30,10 +30,10 @@ A useful Python statement is ```print```.  This tells Python to write something 
 #!/usr/bin/env python
 
 # First print out a message to say hello
-print 'Hello.  I hope you are well today.'
-print 'I am thinking of a whole number, between 1 and 100 inclusive'
-print 'I will give you 8 goes at guessing it, and tell you whether it is higher or lower than your guess'
-print '(I am feeling generous, you should only need 7 goes)'
+print('Hello.  I hope you are well today.')
+print('I am thinking of a whole number, between 1 and 100 inclusive')
+print('I will give you 8 goes at guessing it, and tell you whether it is higher or lower than your guess')
+print('(I am feeling generous, you should only need 7 goes)')
 ```
 
 You can change the words that are printed out to whatever you want.
@@ -41,8 +41,8 @@ You can change the words that are printed out to whatever you want.
 Be careful!  The words to be printed out start and end with '  If you use this character in the words as an apostophy, Python will think that is the end of the words, and get confused! So if you want to write "I'm", so need to put a ```\``` before the apostophy:
 
 ```python
-print 'I'm a happy bunny.'     # This won't work
-print 'I\'m a happy bunny.'    # This will work, and won't print the \
+print('I'm a happy bunny.')     # This won't work
+print('I\'m a happy bunny.')    # This will work, and won't print the \
 ```
 
 (don't add that bit to your program!)
@@ -50,7 +50,7 @@ print 'I\'m a happy bunny.'    # This will work, and won't print the \
 Also, you can put ```\n``` in the words to start a new line:
 
 ```python
-print 'First line \nsecond line'
+print('First line \nsecond line')
 ```
 
 (don't add that bit to your program either!)
@@ -77,7 +77,7 @@ correct = 42
 To check this has worked, we can print the variable out:
 
 ```python
-print 'Don\'t tell anybody, but I\'m thinking of the number ', correct
+print('Don\'t tell anybody, but I\'m thinking of the number ', correct)
 ```
 
 Put these statements into your code and run it.  Does it work?
@@ -103,14 +103,14 @@ Your code should look like this altogether:
 
 # First print out a message to say hello
 import random
-print 'Hello.  I hope you are well today.'
-print 'I am thinking of a whole number, between 1 and 100 inclusive'
-print 'I will give you 8 goes at guessing it, and tell you whether it is higher or lower than your guess'
-print '(I am feeling generous, you should only need 7 goes)'
+print('Hello.  I hope you are well today.')
+print('I am thinking of a whole number, between 1 and 100 inclusive')
+print('I will give you 8 goes at guessing it, and tell you whether it is higher or lower than your guess')
+print('(I am feeling generous, you should only need 7 goes)')
 
 correct = random.randint(1,100)
 
-print 'Don\'t tell anybody, but I\'m thinking of the number ', correct
+print('Don\'t tell anybody, but I\'m thinking of the number ', correct)
 ```
 
 Step 3 - you get 8 chances
@@ -139,11 +139,11 @@ Now we need the computer to tell us whether the correct answer is bigger or smal
 for go in range (1, 9):
 	guess = input('Guess number '+str(go)+':')
 	if guess < correct:
-		print 'It\'s bigger than', guess
+		print('It\'s bigger than', guess)
 	if guess > correct:
-		print 'It\'s smaller than', guess
+		print('It\'s smaller than', guess)
 	if guess == correct:
-		print 'Correct!  Brilliant, you are so clever!'
+		print('Correct!  Brilliant, you are so clever!')
 ```
 	
 Test your code! Does it correctly tell you whether you need a bigger or smaller number? What happens when you get the answer right?
@@ -156,14 +156,14 @@ Finally, if you don't guess the number in 8 goes, the computer wins and should t
 for go in range (1, 9):
 	guess = input('Guess number '+str(go)+':')
 	if guess < correct:
-		print 'It\'s bigger than', guess
+		print('It\'s bigger than', guess)
 	if guess > correct:
-		print 'It\'s smaller than', guess
+		print('It\'s smaller than', guess)
 	if guess == correct:
-		print 'Correct!  Brilliant, you are so clever!'
+		print('Correct!  Brilliant, you are so clever!')
 		break
 else:
-	print 'That\'s all your goes, and you didn\'t guess it - I win!'
+	print('That\'s all your goes, and you didn\'t guess it - I win!')
 ```
     
 Test your code! Does it tell you correctly whether you win or lose?  Try taking out the print to tell you what the number is - can you beat the computer?
@@ -178,11 +178,11 @@ We still want the print statements to say hello, but they need to describe the g
 ```python
 #!/usr/bin/env python
 
-print '\n\nHello.  I hope you are well today.\nLet\'s play a game of "guess my number"\n\n'
-print 'You think of a whole number, between 1 and 100 inclusive'
-print 'I\'ll guess at your number, and you tell yme whether it\'s higher or lower than my guess'
-print 'Type h if your your number is higher then my guess,\nType l if it\'s lower and\nType c if I guess it correctly.'
-print '\n\nDon\'t cheat!!!\n\n'
+print('\n\nHello.  I hope you are well today.\nLet\'s play a game of "guess my number"\n\n')
+print('You think of a whole number, between 1 and 100 inclusive')
+print('I\'ll guess at your number, and you tell yme whether it\'s higher or lower than my guess')
+print('Type h if your your number is higher then my guess,\nType l if it\'s lower and\nType c if I guess it correctly.')
+print('\n\nDon\'t cheat!!!\n\n')
 
 for go in range (1, 9):
 ```
@@ -201,10 +201,10 @@ for go in range (1, 9):
 	guess = (greaterthan + lessthan) / 2
 ```
     
-Now we need to tell the user this number, and ask whether the answer is lower or higher. This time we need to use ```raw_input```, because the ```input``` function we used before only lets us enter numbers:
+Now we need to tell the user this number, and ask whether the answer is lower or higher.
 
 ```python
-	response = raw_input('Guess number '+str(go)+' is '+str(guess)+': ')
+	response = input('Guess number '+str(go)+' is '+str(guess)+': ')
 ```
     
 If the user says the answer is higher, we can change the ```greaterthan``` variable to the number we guessed. If the user says lower, we can change the ```lessthan``` variable. This will let us make a better guess next time.
@@ -217,7 +217,7 @@ If the user says we are correct, we can print out a happy message. As before, we
 	if response == 'l':
 		lessthan = guess
 	if response == 'c':
-		print 'Yeah - I love it when I\'m right!'
+		print('Yeah - I love it when I\'m right!')
 		break
 ```
 	
@@ -225,7 +225,7 @@ If our code works correctly, it should always get the right answer in less than 
 
 ```python
 else:
-	print 'It\'s not fair!'         # Should never get here
+	print('It\'s not fair!')         # Should never get here
 ```
     
 Test your code! Does the computer guess your number every time?
@@ -259,7 +259,7 @@ Now make each part a function by add ```def``` statements to make functions call
 Try running the code. It should not do anything at all!  This is because ```def``` tells Python to create this function, but it doesn't say to run it!  We can add some code beneath the function definitions to print out a wekcome, then call each of the functions in turn.
 
 ```python
-print '\n\nHello.  I hope you are well today.\nLet\'s play a game of "guess my number"\n\n'
+print('\n\nHello.  I hope you are well today.\nLet\'s play a game of "guess my number"\n\n')
 while True:
 	iguess()
 	youguess()
