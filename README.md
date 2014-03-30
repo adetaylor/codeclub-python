@@ -7,7 +7,7 @@ This repository contains some experiments in producing a Python CodeClub curricu
 using PyGame and, I hope eventually, networked games.
 
 This was originally developed in parallel to the IDLE-based curriculum that actually became
-CodeClub term 4. Sad times. However, these may still be useful as an 'advanced Python'
+CodeClub term 4, so they don't necessarily follow on naturally. These may still be useful as an 'advanced Python'
 term.
 
 Checking this out and modifying it
